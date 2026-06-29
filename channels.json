@@ -1,4 +1,20 @@
 {
-  "offset": 73857731,
-  "channels": {}
+  "offset": 73857749,
+  "channels": {
+    "blockchainrf": 13146,
+    "redmadnews": 5326,
+    "abulaphia": 6403,
+    "alwebbci": 4322,
+    "vistehno": 5387,
+    "ict_moscow": 8369,
+    "ict_moscow_ai": 5212,
+    "icipr": 9693,
+    "tsingular": 7759,
+    "ict_moscow_analytics": 6571,
+    "sbmarketing": 9708,
+    "volotovskayaelena": 3818,
+    "ai_newz": 4630,
+    "ai_regulation": 742,
+    "test394234234": 1
+  }
 }
