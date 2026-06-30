@@ -290,10 +290,21 @@ def standardize_post(text: str, state: dict) -> list[dict]:
 
 
 def format_standardized_item(item: dict) -> str:
-    """Собирает headline (жирным) + bullets (через дефис) в готовый текст."""
-    text = f"<b>{item['headline']}</b>"
-    if item["bullets"]:
-        text += "\n" + "\n".join(f"- {b}" for b in item["bullets"])
+    """
+    Собирает headline (жирным) + bullets в готовый текст.
+    Если bullets ровно один — это не самостоятельный список, дописываем
+    его как продолжение headline одним предложением. Список (дефисом)
+    рисуем только при 2+ буллитах.
+    """
+    headline = item["headline"]
+    bullets  = item["bullets"]
+
+    if len(bullets) == 1:
+        return f"<b>{headline} {bullets[0]}</b>"
+
+    text = f"<b>{headline}</b>"
+    if bullets:
+        text += "\n" + "\n".join(f"- {b}" for b in bullets)
     return text
 
 
