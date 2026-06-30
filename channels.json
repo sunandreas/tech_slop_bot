@@ -7,7 +7,7 @@
     "alwebbci": 4323,
     "vistehno": 5387,
     "ict_moscow": 8370,
-    "ict_moscow_ai": 5214,
+    "ict_moscow_ai": 5215,
     "icipr": 9693,
     "tsingular": 7760,
     "ict_moscow_analytics": 6573,
@@ -18,5 +18,5 @@
     "test394234234": 29,
     "disruptors_official": 3620
   },
-  "mimo_alert_sent": true
+  "mimo_alert_sent": false
 }
