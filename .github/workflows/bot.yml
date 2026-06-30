@@ -28,6 +28,7 @@ jobs:
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           CHAT_ID: ${{ secrets.CHAT_ID }}
+          MI_API: ${{ secrets.MI_API }}
         run: python bot.py
 
       - name: Commit state
