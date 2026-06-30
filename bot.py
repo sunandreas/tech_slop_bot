@@ -24,7 +24,7 @@ ALLOWED_HASHTAGS = {
     "ии_рынок", "ии_регулирование",
     "платформы_экономика_платформ", "платформы_экосистемы",
     "платформы_агентная_коммерция", "платформы_регулирование",
-    "ит-сектор", "телеком", "финтех", "кибербез", "кванты",
+    "ит_сектор", "телеком", "финтех", "кибербез", "кванты",
     "другое",
 }
 DEFAULT_HASHTAG = "другое"
@@ -95,26 +95,30 @@ def send_message(text: str) -> None:
     )
 
 
-def send_photo_file(photo_bytes: bytes, caption: str) -> bool:
-    """Отправляет одно фото как файл с подписью."""
+def send_photo_file(photo_bytes: bytes, caption: Optional[str]) -> bool:
+    """Отправляет одно фото как файл, с подписью если она задана."""
     try:
+        data = {"chat_id": CHAT_ID}
+        if caption:
+            data["caption"]    = caption
+            data["parse_mode"] = "HTML"
         r = requests.post(
             f"{API_URL}/sendPhoto",
-            data={"chat_id": CHAT_ID, "caption": caption, "parse_mode": "HTML"},
+            data=data,
             files={"photo": ("photo.jpg", photo_bytes, "image/jpeg")},
             timeout=30,
         )
-        data = r.json()
-        if data.get("ok"):
+        data_resp = r.json()
+        if data_resp.get("ok"):
             return True
-        print(f"[TG ERROR] sendPhoto: {data.get('description')}")
+        print(f"[TG ERROR] sendPhoto: {data_resp.get('description')}")
     except Exception as e:
         print(f"[REQUEST ERROR] sendPhoto: {e}")
     return False
 
 
-def send_media_group_files(images_bytes: list[bytes], caption: str) -> bool:
-    """Отправляет альбом фото как файлы с подписью на первом."""
+def send_media_group_files(images_bytes: list[bytes], caption: Optional[str]) -> bool:
+    """Отправляет альбом фото как файлы, с подписью на первом если она задана."""
     try:
         files = {}
         media = []
@@ -122,7 +126,7 @@ def send_media_group_files(images_bytes: list[bytes], caption: str) -> bool:
             name = f"attach{i}"
             files[name] = (f"photo{i}.jpg", img, "image/jpeg")
             item = {"type": "photo", "media": f"attach://{name}"}
-            if i == 0:
+            if i == 0 and caption:
                 item["caption"]    = caption
                 item["parse_mode"] = "HTML"
             media.append(item)
@@ -338,29 +342,27 @@ def standardize_post(text: str, state: dict) -> list[dict]:
 
 def format_standardized_item(item: dict) -> str:
     """
-    Собирает headline (жирным) + bullets + hashtag в готовый текст.
+    Собирает headline (жирным) + bullets в готовый текст.
     Если bullets ровно один — это не самостоятельный список, дописываем
     его как продолжение headline одним предложением. Список (дефисом)
-    рисуем только при 2+ буллитах. Hashtag — отдельной строкой в конце.
+    рисуем только при 2+ буллитах. Hashtag и ссылка добавляются отдельно
+    в send_post, после этого текста.
     """
     headline = item["headline"]
     bullets  = item["bullets"]
-    hashtag  = item.get("hashtag", DEFAULT_HASHTAG)
 
     if len(bullets) == 1:
-        text = f"<b>{headline} {bullets[0]}</b>"
-    else:
-        text = f"<b>{headline}</b>"
-        if bullets:
-            text += "\n" + "\n".join(f"- {b}" for b in bullets)
+        return f"<b>{headline} {bullets[0]}</b>"
 
-    text += f"\n\n#{hashtag}"
+    text = f"<b>{headline}</b>"
+    if bullets:
+        text += "\n" + "\n".join(f"- {b}" for b in bullets)
     return text
 
 
 # ── Sending posts ─────────────────────────────────────────────────────────────
 def send_post(post: dict, channel: str, channel_name: str, state: dict) -> bool:
-    footer = f'\n\n🔗 <a href="{post["url"]}">публикация</a> {channel_name}'
+    footer = f'\n\n🔗 <a href="{post["url"]}">публикация {channel_name}</a>'
 
     # Нет ни текста ни картинок — видео или документ
     if not post["text"] and not post["images"]:
@@ -377,11 +379,14 @@ def send_post(post: dict, channel: str, channel_name: str, state: dict) -> bool:
 
     ok = True
     for i, item in enumerate(items):
-        text_with_footer = format_standardized_item(item) + footer
+        hashtag = item.get("hashtag", DEFAULT_HASHTAG)
+        body    = format_standardized_item(item)
+        full_text = body + footer + f"\n\n#{hashtag}"
 
         # Картинки прикладываем только к первому сообщению из пакета
         if i == 0 and images_bytes:
-            caption = text_with_footer if len(text_with_footer) <= CAPTION_LIMIT else footer
+            fits_caption = len(full_text) <= CAPTION_LIMIT
+            caption = full_text if fits_caption else None
 
             if len(images_bytes) == 1:
                 sent = send_photo_file(images_bytes[0], caption)
@@ -389,11 +394,14 @@ def send_post(post: dict, channel: str, channel_name: str, state: dict) -> bool:
                 sent = send_media_group_files(images_bytes, caption)
             ok &= sent
 
-            if len(text_with_footer) > CAPTION_LIMIT:
+            # Текст не влез в подпись — фото уходит без подписи,
+            # весь текст с футером и хэштегом отправляем отдельным
+            # сообщением (без дублирования футера в подписи).
+            if not fits_caption:
                 ok &= tg(
                     "sendMessage",
                     chat_id=CHAT_ID,
-                    text=text_with_footer,
+                    text=full_text,
                     parse_mode="HTML",
                     link_preview_options={"is_disabled": True},
                 ) is not None
@@ -401,7 +409,7 @@ def send_post(post: dict, channel: str, channel_name: str, state: dict) -> bool:
             ok &= tg(
                 "sendMessage",
                 chat_id=CHAT_ID,
-                text=text_with_footer,
+                text=full_text,
                 parse_mode="HTML",
                 link_preview_options={"is_disabled": True},
             ) is not None
