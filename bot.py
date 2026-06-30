@@ -250,7 +250,7 @@ def standardize_post(text: str, state: dict) -> list[dict]:
                     {"role": "user", "content": text},
                 ],
             },
-            timeout=40,
+            timeout=180,
         )
         data = r.json()
 
