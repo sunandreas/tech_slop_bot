@@ -36,5 +36,12 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add channels.json
-          git diff --staged --quiet || git commit -m "update state"
-          git push
+          git diff --staged --quiet && exit 0
+          git commit -m "update state"
+          for i in 1 2 3 4 5; do
+            git push && exit 0
+            echo "Push rejected, retrying after rebase..."
+            git pull --rebase origin main
+          done
+          echo "Push failed after retries"
+          exit 1
