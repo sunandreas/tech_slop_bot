@@ -290,8 +290,8 @@ def standardize_post(text: str, state: dict) -> list[dict]:
 
 
 def format_standardized_item(item: dict) -> str:
-    """Собирает headline + bullets (через дефис) в готовый текст сообщения."""
-    text = item["headline"]
+    """Собирает headline (жирным) + bullets (через дефис) в готовый текст."""
+    text = f"<b>{item['headline']}</b>"
     if item["bullets"]:
         text += "\n" + "\n".join(f"- {b}" for b in item["bullets"])
     return text
