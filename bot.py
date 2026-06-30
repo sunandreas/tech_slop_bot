@@ -1,6 +1,7 @@
 import json
 import os
 import re
+import time
 import requests
 from bs4 import BeautifulSoup, NavigableString
 from typing import Optional
@@ -276,9 +277,10 @@ def standardize_post(text: str, state: dict) -> list[dict]:
     """
     Прогоняет сырой текст поста через MiMo и возвращает список
     стандартизированных новостей вида {"headline": str, "bullets": [str]}.
-    При любой ошибке — fallback на исходный текст без обработки,
-    чтобы не терять контент. При первой ошибке за сессию шлёт
-    разовое предупреждение пользователю.
+    При временных сбоях (сеть, невалидный ответ) делает одну повторную
+    попытку с паузой. При окончательной ошибке — fallback на исходный
+    текст без обработки, чтобы не терять контент. При первой ошибке за
+    сессию шлёт разовое предупреждение пользователю.
     """
     if not text.strip():
         return []
@@ -294,57 +296,74 @@ def standardize_post(text: str, state: dict) -> list[dict]:
             )
             state["mimo_alert_sent"] = True
 
-    try:
-        r = requests.post(
-            MIMO_API_URL,
-            headers={
-                "Authorization": f"Bearer {MIMO_API_KEY}",
-                "Content-Type": "application/json",
-            },
-            json={
-                "model": MIMO_MODEL,
-                "messages": [
-                    {"role": "system", "content": STANDARDIZATION_PROMPT},
-                    {"role": "user", "content": text},
-                ],
-            },
-            timeout=180,
-        )
-        data = r.json()
+    for attempt in range(2):
+        is_last_attempt = attempt == 1
+        try:
+            r = requests.post(
+                MIMO_API_URL,
+                headers={
+                    "Authorization": f"Bearer {MIMO_API_KEY}",
+                    "Content-Type": "application/json",
+                },
+                json={
+                    "model": MIMO_MODEL,
+                    "messages": [
+                        {"role": "system", "content": STANDARDIZATION_PROMPT},
+                        {"role": "user", "content": text},
+                    ],
+                },
+                timeout=180,
+            )
 
-        if "error" in data:
-            report_failure(str(data["error"]))
-            return fallback
-
-        content = data["choices"][0]["message"]["content"]
-        content = strip_json_fence(content)
-        items   = json.loads(content)
-
-        if not isinstance(items, list):
-            report_failure("некорректный формат ответа")
-            return fallback
-
-        # Валидация структуры каждого элемента
-        for item in items:
-            if "headline" not in item:
-                report_failure("элемент без headline в ответе")
+            try:
+                data = r.json()
+            except ValueError:
+                if not is_last_attempt:
+                    time.sleep(3)
+                    continue
+                snippet = r.text[:200].replace("\n", " ")
+                report_failure(f"невалидный JSON в ответе (HTTP {r.status_code}): {snippet!r}")
                 return fallback
-            item.setdefault("bullets", [])
 
-            tag = str(item.get("hashtag", "")).strip().lstrip("#")
-            if tag not in ALLOWED_HASHTAGS:
-                print(f"[MIMO WARNING] Неизвестный/отсутствующий hashtag '{tag}', заменён на '{DEFAULT_HASHTAG}'")
-                tag = DEFAULT_HASHTAG
-            item["hashtag"] = tag
+            if "error" in data:
+                # Ошибка от самого API (баланс, ключ и т.п.) — повтор не поможет
+                report_failure(str(data["error"]))
+                return fallback
 
-        # Успешный вызов — сбрасываем флаг, чтобы при повторном сбое
-        # пользователь снова получил уведомление
-        state["mimo_alert_sent"] = False
-        return items
+            content = data["choices"][0]["message"]["content"]
+            content = strip_json_fence(content)
+            items   = json.loads(content)
 
-    except Exception as e:
-        report_failure(f"ошибка запроса ({e})")
-        return fallback
+            if not isinstance(items, list):
+                report_failure("некорректный формат ответа")
+                return fallback
+
+            # Валидация структуры каждого элемента
+            for item in items:
+                if "headline" not in item:
+                    report_failure("элемент без headline в ответе")
+                    return fallback
+                item.setdefault("bullets", [])
+
+                tag = str(item.get("hashtag", "")).strip().lstrip("#")
+                if tag not in ALLOWED_HASHTAGS:
+                    print(f"[MIMO WARNING] Неизвестный/отсутствующий hashtag '{tag}', заменён на '{DEFAULT_HASHTAG}'")
+                    tag = DEFAULT_HASHTAG
+                item["hashtag"] = tag
+
+            # Успешный вызов — сбрасываем флаг, чтобы при повторном сбое
+            # пользователь снова получил уведомление
+            state["mimo_alert_sent"] = False
+            return items
+
+        except Exception as e:
+            if not is_last_attempt:
+                time.sleep(3)
+                continue
+            report_failure(f"ошибка запроса ({e})")
+            return fallback
+
+    return fallback
 
 
 def format_standardized_item(item: dict) -> str:
