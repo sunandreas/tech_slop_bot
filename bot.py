@@ -381,7 +381,7 @@ def send_post(post: dict, channel: str, channel_name: str, state: dict) -> bool:
     for i, item in enumerate(items):
         hashtag = item.get("hashtag", DEFAULT_HASHTAG)
         body    = format_standardized_item(item)
-        full_text = body + footer + f"\n#{hashtag}"
+        full_text = body + footer + f"\n\n#{hashtag}"
 
         # Картинки прикладываем только к первому сообщению из пакета
         if i == 0 and images_bytes:
