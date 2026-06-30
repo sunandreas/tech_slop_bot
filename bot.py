@@ -19,6 +19,16 @@ MIMO_MODEL    = "mimo-v2.5-pro"
 HEADERS       = {"User-Agent": "Mozilla/5.0 (compatible; NewsBot/1.0)"}
 CAPTION_LIMIT = 1024
 
+ALLOWED_HASHTAGS = {
+    "ии_модели_и_агенты", "ии_инфраструктура", "ии_внедрение",
+    "ии_рынок", "ии_регулирование",
+    "платформы_экономика_платформ", "платформы_экосистемы",
+    "платформы_агентная_коммерция", "платформы_регулирование",
+    "ит-сектор", "телеком", "финтех", "кибербез", "кванты",
+    "другое",
+}
+DEFAULT_HASHTAG = "другое"
+
 HELP_TEXT = (
     "👋 <b>NewsBot</b> — агрегатор Telegram каналов\n\n"
     "/add @channel — добавить канал\n"
@@ -231,7 +241,7 @@ def standardize_post(text: str, state: dict) -> list[dict]:
     if not text.strip():
         return []
 
-    fallback = [{"headline": text, "bullets": []}]
+    fallback = [{"headline": text, "bullets": [], "hashtag": DEFAULT_HASHTAG}]
 
     def report_failure(reason: str) -> None:
         print(f"[MIMO ERROR] {reason}")
@@ -279,6 +289,12 @@ def standardize_post(text: str, state: dict) -> list[dict]:
                 return fallback
             item.setdefault("bullets", [])
 
+            tag = str(item.get("hashtag", "")).strip().lstrip("#")
+            if tag not in ALLOWED_HASHTAGS:
+                print(f"[MIMO WARNING] Неизвестный/отсутствующий hashtag '{tag}', заменён на '{DEFAULT_HASHTAG}'")
+                tag = DEFAULT_HASHTAG
+            item["hashtag"] = tag
+
         # Успешный вызов — сбрасываем флаг, чтобы при повторном сбое
         # пользователь снова получил уведомление
         state["mimo_alert_sent"] = False
@@ -291,20 +307,23 @@ def standardize_post(text: str, state: dict) -> list[dict]:
 
 def format_standardized_item(item: dict) -> str:
     """
-    Собирает headline (жирным) + bullets в готовый текст.
+    Собирает headline (жирным) + bullets + hashtag в готовый текст.
     Если bullets ровно один — это не самостоятельный список, дописываем
     его как продолжение headline одним предложением. Список (дефисом)
-    рисуем только при 2+ буллитах.
+    рисуем только при 2+ буллитах. Hashtag — отдельной строкой в конце.
     """
     headline = item["headline"]
     bullets  = item["bullets"]
+    hashtag  = item.get("hashtag", DEFAULT_HASHTAG)
 
     if len(bullets) == 1:
-        return f"<b>{headline} {bullets[0]}</b>"
+        text = f"<b>{headline} {bullets[0]}</b>"
+    else:
+        text = f"<b>{headline}</b>"
+        if bullets:
+            text += "\n" + "\n".join(f"- {b}" for b in bullets)
 
-    text = f"<b>{headline}</b>"
-    if bullets:
-        text += "\n" + "\n".join(f"- {b}" for b in bullets)
+    text += f"\n\n#{hashtag}"
     return text
 
 
@@ -322,7 +341,7 @@ def send_post(post: dict, channel: str, state: dict) -> bool:
             link_preview_options={"is_disabled": True},
         ) is not None
 
-    items = standardize_post(post["text"], state) if post["text"] else [{"headline": "", "bullets": []}]
+    items = standardize_post(post["text"], state) if post["text"] else [{"headline": "", "bullets": [], "hashtag": DEFAULT_HASHTAG}]
     images_bytes = [b for url in post["images"] if (b := download_image(url)) is not None]
 
     ok = True
