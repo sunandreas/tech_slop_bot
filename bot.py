@@ -30,16 +30,16 @@ ALLOWED_HASHTAGS = {
 DEFAULT_HASHTAG = "другое"
 
 HELP_TEXT = (
-    "📡 Tech Slop Bot — ИИ-агент для мониторинга ИТ-трендов\n\n"
-    "Что я умею: 🐸🪷\n"
+    "📡 <b>Tech Slop Bot</b> — ИИ-агент для мониторинга ИТ-трендов\n\n"
+    "<b>Что я умею:</b>\n"
     "1. Мониторю каналы, которые ты добавишь\n"
     "2. Переписываю новости в чистый формат\n"
     "3. Сортирую по тегам\n\n"
-    "🐸 Команды:\n"
+    "<b>Команды:</b>\n"
     "/add @channel\n"
-    "/remove @channel 🐸\n"
+    "/remove @channel\n"
     "/list\n\n"
-    "Код проекта: https://github.com/sunandreas/tech_slop_bot 🐸"
+    "<b>Код проекта:</b> https://github.com/sunandreas/tech_slop_bot"
 )
 
 
