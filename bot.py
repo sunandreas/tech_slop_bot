@@ -40,7 +40,19 @@ HELP_TEXT = (
 # ── State ─────────────────────────────────────────────────────────────────────
 def load_state() -> dict:
     with open(STATE_FILE, "r", encoding="utf-8") as f:
-        return json.load(f)
+        state = json.load(f)
+
+    # Миграция старого формата (channel -> int) в новый
+    # (channel -> {"name": str, "last_seen": int}), если нужно.
+    channels = state.get("channels", {})
+    migrated = {}
+    for ch, value in channels.items():
+        if isinstance(value, dict):
+            migrated[ch] = value
+        else:
+            migrated[ch] = {"name": f"@{ch}", "last_seen": value}
+    state["channels"] = migrated
+    return state
 
 
 def save_state(state: dict) -> None:
@@ -177,6 +189,25 @@ def download_image(url: str) -> Optional[bytes]:
 
 
 # ── Parsing ───────────────────────────────────────────────────────────────────
+def fetch_channel_name(channel: str) -> str:
+    """
+    Извлекает отображаемое имя канала со страницы t.me/s/channel.
+    Если не удалось — возвращает @username как fallback.
+    """
+    try:
+        r = requests.get(f"{TG_WEB}/{channel}", headers=HEADERS, timeout=10)
+        if r.status_code == 200:
+            soup = BeautifulSoup(r.text, "html.parser")
+            title_div = soup.find("div", class_="tgme_channel_info_header_title")
+            if title_div:
+                name = title_div.get_text(strip=True)
+                if name:
+                    return name
+    except Exception as e:
+        print(f"[CHANNEL NAME ERROR] {channel}: {e}")
+    return f"@{channel}"
+
+
 def fetch_posts(channel: str) -> list[dict]:
     """Парсит t.me/s/channel и возвращает список постов с текстом и картинками."""
     try:
@@ -328,8 +359,8 @@ def format_standardized_item(item: dict) -> str:
 
 
 # ── Sending posts ─────────────────────────────────────────────────────────────
-def send_post(post: dict, channel: str, state: dict) -> bool:
-    footer = f'\n\n<a href="{post["url"]}">© @{channel} | открыть пост</a>'
+def send_post(post: dict, channel: str, channel_name: str, state: dict) -> bool:
+    footer = f'\n\n🔗 <a href="{post["url"]}">публикация</a> {channel_name}'
 
     # Нет ни текста ни картинок — видео или документ
     if not post["text"] and not post["images"]:
@@ -387,8 +418,9 @@ def cmd_add(channel: str, state: dict) -> None:
     if not posts:
         send_message(f"❌ Канал @{channel} не найден или недоступен")
         return
-    state["channels"][channel] = posts[-1]["id"]
-    send_message(f"✅ Канал @{channel} добавлен")
+    name = fetch_channel_name(channel)
+    state["channels"][channel] = {"name": name, "last_seen": posts[-1]["id"]}
+    send_message(f"✅ Канал «{name}» (@{channel}) добавлен")
 
 
 def cmd_remove(channel: str, state: dict) -> None:
@@ -404,7 +436,7 @@ def cmd_list(state: dict) -> None:
     if not channels:
         send_message("Список пуст. Добавь канал через /add @channel")
         return
-    items = "\n".join(f"• @{ch}" for ch in channels)
+    items = "\n".join(f"• {info['name']} (@{ch})" for ch, info in channels.items())
     send_message(f"📋 <b>Твои каналы:</b>\n\n{items}")
 
 
@@ -442,7 +474,14 @@ def process_commands(state: dict) -> None:
 # ── Forwarding ────────────────────────────────────────────────────────────────
 def process_channels(state: dict) -> None:
     """Для каждого канала находит новые посты и отправляет их."""
-    for channel, last_seen in list(state["channels"].items()):
+    for channel, info in list(state["channels"].items()):
+        # Бэкфилл имени для каналов, мигрированных со старого формата
+        if info["name"] == f"@{channel}":
+            real_name = fetch_channel_name(channel)
+            if real_name != f"@{channel}":
+                info["name"] = real_name
+
+        last_seen = info["last_seen"]
         posts     = fetch_posts(channel)
         new_posts = [p for p in posts if p["id"] > last_seen]
 
@@ -452,8 +491,8 @@ def process_channels(state: dict) -> None:
         print(f"[{channel}] новых постов: {len(new_posts)}")
 
         for post in new_posts:
-            if send_post(post, channel, state):
-                state["channels"][channel] = post["id"]
+            if send_post(post, channel, info["name"], state):
+                info["last_seen"] = post["id"]
             else:
                 print(f"[SEND ERROR] {channel}/{post['id']}")
 
