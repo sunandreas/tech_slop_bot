@@ -64,7 +64,13 @@ def get_updates(offset: int) -> list:
 
 
 def send_message(text: str) -> None:
-    tg("sendMessage", chat_id=CHAT_ID, text=text, parse_mode="HTML")
+    tg(
+        "sendMessage",
+        chat_id=CHAT_ID,
+        text=text,
+        parse_mode="HTML",
+        link_preview_options={"is_disabled": True},
+    )
 
 
 def send_photo_file(photo_bytes: bytes, caption: str) -> bool:
@@ -302,6 +308,7 @@ def send_post(post: dict, channel: str, state: dict) -> bool:
             chat_id=CHAT_ID,
             text=f"📎 Медиафайл (видео/документ){footer}",
             parse_mode="HTML",
+            link_preview_options={"is_disabled": True},
         ) is not None
 
     items = standardize_post(post["text"], state) if post["text"] else [{"headline": "", "bullets": []}]
@@ -322,9 +329,21 @@ def send_post(post: dict, channel: str, state: dict) -> bool:
             ok &= sent
 
             if len(text_with_footer) > CAPTION_LIMIT:
-                ok &= tg("sendMessage", chat_id=CHAT_ID, text=text_with_footer, parse_mode="HTML") is not None
+                ok &= tg(
+                    "sendMessage",
+                    chat_id=CHAT_ID,
+                    text=text_with_footer,
+                    parse_mode="HTML",
+                    link_preview_options={"is_disabled": True},
+                ) is not None
         else:
-            ok &= tg("sendMessage", chat_id=CHAT_ID, text=text_with_footer, parse_mode="HTML") is not None
+            ok &= tg(
+                "sendMessage",
+                chat_id=CHAT_ID,
+                text=text_with_footer,
+                parse_mode="HTML",
+                link_preview_options={"is_disabled": True},
+            ) is not None
 
     return ok
 
