@@ -1,22 +1,70 @@
 {
   "offset": 73857757,
   "channels": {
-    "blockchainrf": 13149,
-    "redmadnews": 5326,
-    "abulaphia": 6404,
-    "alwebbci": 4324,
-    "vistehno": 5387,
-    "ict_moscow": 8370,
-    "ict_moscow_ai": 5216,
-    "icipr": 9693,
-    "tsingular": 7760,
-    "ict_moscow_analytics": 6574,
-    "sbmarketing": 9709,
-    "volotovskayaelena": 3820,
-    "ai_newz": 4632,
-    "ai_regulation": 744,
-    "test394234234": 32,
-    "disruptors_official": 3620
+    "blockchainrf": {
+      "name": "Все о блокчейн/мозге/space/WEB 3.0 в России и мире",
+      "last_seen": 13149
+    },
+    "redmadnews": {
+      "name": "red_mad_robot",
+      "last_seen": 5326
+    },
+    "abulaphia": {
+      "name": "Innovation & Research",
+      "last_seen": 6404
+    },
+    "alwebbci": {
+      "name": "All about AI, Web 3.0, BCI",
+      "last_seen": 4324
+    },
+    "vistehno": {
+      "name": "Искусственный интеллект. Высокие технологии",
+      "last_seen": 5387
+    },
+    "ict_moscow": {
+      "name": "ICT.Moscow",
+      "last_seen": 8370
+    },
+    "ict_moscow_ai": {
+      "name": "База знаний AI",
+      "last_seen": 5216
+    },
+    "icipr": {
+      "name": "ЦИПР",
+      "last_seen": 9693
+    },
+    "tsingular": {
+      "name": "Технозаметки Малышева",
+      "last_seen": 7760
+    },
+    "ict_moscow_analytics": {
+      "name": "Мониторинг аналитики об IT",
+      "last_seen": 6574
+    },
+    "sbmarketing": {
+      "name": "News & Trends by Sber",
+      "last_seen": 9710
+    },
+    "volotovskayaelena": {
+      "name": "Volotovskaya",
+      "last_seen": 3820
+    },
+    "ai_newz": {
+      "name": "эйай ньюз",
+      "last_seen": 4632
+    },
+    "ai_regulation": {
+      "name": "HCAI // Регулирование ИИ",
+      "last_seen": 744
+    },
+    "test394234234": {
+      "name": "Test89674",
+      "last_seen": 32
+    },
+    "disruptors_official": {
+      "name": "Дизраптор",
+      "last_seen": 3620
+    }
   },
   "mimo_alert_sent": false
 }
