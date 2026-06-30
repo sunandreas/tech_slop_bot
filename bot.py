@@ -366,16 +366,29 @@ def standardize_post(text: str, state: dict) -> list[dict]:
     return fallback
 
 
+SENTENCE_ENDERS = (".", "!", "?", "…")
+
+
+def ensure_period(text: str) -> str:
+    """Гарантирует точку (или другой завершающий знак) в конце текста."""
+    text = text.rstrip()
+    if text and not text.endswith(SENTENCE_ENDERS):
+        text += "."
+    return text
+
+
 def format_standardized_item(item: dict) -> str:
     """
     Собирает headline (жирным) + bullets в готовый текст.
+    Headline и каждый bullet гарантированно заканчиваются точкой
+    (страховка на случай если модель её не поставила).
     Если bullets ровно один — это не самостоятельный список, дописываем
     его как продолжение headline одним предложением. Список (дефисом)
     рисуем только при 2+ буллитах. Hashtag и ссылка добавляются отдельно
     в send_post, после этого текста.
     """
-    headline = item["headline"]
-    bullets  = item["bullets"]
+    headline = ensure_period(item["headline"])
+    bullets  = [ensure_period(b) for b in item["bullets"]]
 
     if len(bullets) == 1:
         return f"<b>{headline}</b> {bullets[0]}"
