@@ -45,6 +45,10 @@ requests
 beautifulsoup4
 ```
 
+---
+
+Built with [Claude](https://claude.ai) (Anthropic)
+
 ## Разметка и фильтрация (в разработке)
 
 Сбор обратной связи через реакции Telegram для обучения фильтра значимости новостей.
