@@ -42,7 +42,7 @@ jobs:
           for i in 1 2 3 4 5; do
             git push && exit 0
             echo "Push rejected, retrying after rebase..."
-            git pull --rebase origin main
+            git pull --rebase -X ours origin main
           done
           echo "Push failed after retries"
           exit 1
