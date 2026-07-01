@@ -59,7 +59,7 @@
     },
     "test394234234": {
       "name": "Test89674",
-      "last_seen": 44
+      "last_seen": 46
     },
     "disruptors_official": {
       "name": "Дизраптор",
@@ -67,5 +67,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1782907126
+  "last_run": 1782907457
 }
