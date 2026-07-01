@@ -3,7 +3,7 @@
   "channels": {
     "blockchainrf": {
       "name": "Все о блокчейн/мозге/space/WEB 3.0 в России и мире",
-      "last_seen": 13154
+      "last_seen": 13155
     },
     "redmadnews": {
       "name": "red_mad_robot",
@@ -15,11 +15,11 @@
     },
     "alwebbci": {
       "name": "All about AI, Web 3.0, BCI",
-      "last_seen": 4326
+      "last_seen": 4329
     },
     "vistehno": {
       "name": "Искусственный интеллект. Высокие технологии",
-      "last_seen": 5400
+      "last_seen": 5401
     },
     "ict_moscow": {
       "name": "ICT.Moscow",
@@ -27,7 +27,7 @@
     },
     "ict_moscow_ai": {
       "name": "База знаний AI",
-      "last_seen": 5220
+      "last_seen": 5221
     },
     "icipr": {
       "name": "ЦИПР",
@@ -59,7 +59,7 @@
     },
     "test394234234": {
       "name": "Test89674",
-      "last_seen": 46
+      "last_seen": 47
     },
     "disruptors_official": {
       "name": "Дизраптор",
@@ -67,5 +67,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1782908687
+  "last_run": 1782911095
 }
