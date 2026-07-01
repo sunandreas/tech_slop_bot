@@ -106,7 +106,8 @@ def tg(method: str, **params) -> Optional[dict | list]:
 
 
 def get_updates(offset: int) -> list:
-    return tg("getUpdates", offset=offset, timeout=0) or []
+    return tg("getUpdates", offset=offset, timeout=0,
+              allowed_updates=["message", "callback_query", "message_reaction"]) or []
 
 
 def send_message(text: str) -> None:
@@ -407,25 +408,22 @@ def standardize_post(text: str, state: dict) -> list[dict]:
     return fallback
 
 
-VOTE_KEYBOARD = {
-    "inline_keyboard": [[
-        {"text": "🟢", "callback_data": "v:2"},
-        {"text": "🟡", "callback_data": "v:1"},
-        {"text": "🔴", "callback_data": "v:0"},
-    ]]
-}
-
-
-def send_text_with_vote(text: str) -> Optional[dict]:
-    """Отправляет текстовое сообщение с кнопками оценки."""
-    return tg(
+def send_text_news(text: str, state: dict) -> bool:
+    """Отправляет текстовое сообщение новости и кэширует message_id → текст для реакций."""
+    result = tg(
         "sendMessage",
         chat_id=CHAT_ID,
         text=text,
         parse_mode="HTML",
         link_preview_options={"is_disabled": True},
-        reply_markup=VOTE_KEYBOARD,
     )
+    if result and isinstance(result, dict):
+        msg_id = str(result.get("message_id", ""))
+        if msg_id:
+            if "msg_cache" not in state:
+                state["msg_cache"] = {}
+            state["msg_cache"][msg_id] = text
+    return result is not None
 
 
 SENTENCE_ENDERS = (".", "!", "?", "…")
@@ -499,9 +497,9 @@ def send_post(post: dict, channel: str, channel_name: str, state: dict) -> bool:
             # весь текст с футером и хэштегом отправляем отдельным
             # сообщением (без дублирования футера в подписи).
             if not fits_caption:
-                ok &= send_text_with_vote(full_text) is not None
+                ok &= send_text_news(full_text, state)
         else:
-            ok &= send_text_with_vote(full_text) is not None
+            ok &= send_text_news(full_text, state)
 
     return ok
 
@@ -537,53 +535,53 @@ def cmd_list(state: dict) -> None:
     send_message(f"📋 <b>Твои каналы:</b>\n\n{items}")
 
 
-def handle_vote(update: dict) -> None:
-    """Обрабатывает нажатие кнопки 👍/👎 и сохраняет оценку в labels.json."""
-    cq = update.get("callback_query", {})
-    if not cq:
-        return
+def handle_reaction(update: dict, state: dict) -> None:
+    """Обрабатывает нативную реакцию на сообщение и сохраняет метку в labels.json."""
+    try:
+        mr = update.get("message_reaction", {})
+        if not mr:
+            return
 
-    # Telegram требует обязательно отвечать на callback_query
-    tg("answerCallbackQuery", callback_query_id=cq["id"])
+        new_reactions = mr.get("new_reaction", [])
+        if not new_reactions:
+            return  # Реакция убрана — не интересно
 
-    data = cq.get("data", "")
-    if not data.startswith("v:"):
-        return
+        msg_id  = str(mr.get("message_id", ""))
+        cache   = state.get("msg_cache", {})
+        text    = cache.get(msg_id, "")
 
-    label = int(data.split(":")[1])  # 1 = важно, 0 = мимо
-    msg   = cq.get("message", {})
-    text  = (msg.get("text") or msg.get("caption") or "").strip()
+        reaction  = new_reactions[0]
+        rtype     = reaction.get("type", "")
+        if rtype == "emoji":
+            emoji = reaction.get("emoji", "")
+        elif rtype == "custom_emoji":
+            emoji = reaction.get("custom_emoji_id", "")
+        else:
+            return
 
-    if not text:
-        return
+        labels = load_labels()
+        labels.append({
+            "text":      text,
+            "reaction":  emoji,
+            "msg_id":    msg_id,
+            "timestamp": int(time.time()),
+        })
+        save_labels(labels)
+        print(f"[REACTION] {emoji!r} на msg_id={msg_id}, всего меток: {len(labels)}")
 
-    # Убираем кнопки после нажатия — визуальный фидбек что оценка зафиксирована
-    tg("editMessageReplyMarkup",
-       chat_id=CHAT_ID,
-       message_id=msg["message_id"],
-       reply_markup={"inline_keyboard": []})
-
-    labels = load_labels()
-    labels.append({
-        "text":      text,
-        "label":     label,
-        "timestamp": int(time.time()),
-    })
-    save_labels(labels)
-    LABEL_EMOJI = {2: "🟢", 1: "🟡", 0: "🔴"}
-    print(f"[LABEL] {LABEL_EMOJI.get(label, '?')} сохранена, всего: {len(labels)}")
+    except Exception as e:
+        print(f"[REACTION ERROR] {e}")
 
 
 def process_commands(state: dict) -> None:
-    """Читает команды и callback-ответы от пользователя и обрабатывает их."""
+    """Читает команды и реакции от пользователя и обрабатывает их."""
     updates = get_updates(state.get("offset", 0))
     for update in updates:
         state["offset"] = update["update_id"] + 1
 
-        # Обработка кнопок оценки
-        if "callback_query" in update:
-            if update["callback_query"].get("from", {}).get("id") == CHAT_ID:
-                handle_vote(update)
+        # Нативные реакции на сообщения
+        if "message_reaction" in update:
+            handle_reaction(update, state)
             continue
 
         msg = update.get("message", {})
@@ -634,6 +632,8 @@ def process_channels(state: dict) -> None:
         for post in new_posts:
             if send_post(post, channel, info["name"], state):
                 info["last_seen"] = post["id"]
+                save_state(state)  # Сохраняем сразу — если скрипт упадёт дальше,
+                                   # этот пост уже не будет переобработан
             else:
                 print(f"[SEND ERROR] {channel}/{post['id']}")
 
@@ -642,18 +642,26 @@ def process_channels(state: dict) -> None:
 def main():
     state = load_state()
 
-    # Защита от двойных запусков — если предыдущий прогон завершился
-    # менее 60 секунд назад, пропускаем этот запуск.
-    # Это страховка на случай если cron-job.org прислал двойной триггер
-    # или concurrency в bot.yml не сработал идеально.
+    # Защита от двойных запусков
     now = int(time.time())
     last_run = state.get("last_run", 0)
     if now - last_run < 60:
         print(f"[SKIP] Предыдущий прогон завершился {now - last_run}с назад, пропускаем")
         return
 
+    # Инициализация кэша message_id → текст
+    if "msg_cache" not in state:
+        state["msg_cache"] = {}
+
     process_commands(state)
     process_channels(state)
+
+    # Обрезаем кэш до последних 300 сообщений
+    cache = state["msg_cache"]
+    if len(cache) > 300:
+        sorted_keys = sorted(cache.keys(), key=lambda k: int(k) if k.isdigit() else 0)
+        for k in sorted_keys[:len(cache) - 300]:
+            del cache[k]
 
     state["last_run"] = int(time.time())
     save_state(state)
