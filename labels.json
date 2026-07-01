@@ -4,5 +4,59 @@
     "reaction": "🟢",
     "msg_id": "283",
     "timestamp": 1782914783
+  },
+  {
+    "text": "<b>OpenAI и Work Louder <a href=\"https://x.com/OpenAIDevs/status/2071639953927438440\">анонсировали</a> клавиатуру Codex для разработчиков с аппаратной интеграцией с моделями ИИ, презентация запланирована на 15 июля.</b>\n\n🔗 <a href=\"https://t.me/vistehno/5402\">публикация Искусственный интеллект. Высокие технологии</a>\n\n#ит_сектор",
+    "reaction": "🔴",
+    "msg_id": "319",
+    "timestamp": 1782921267
+  },
+  {
+    "text": "<b>Google <a href=\"https://blog.google/innovation-and-ai/products/gemini-app/personal-intelligence-nano-banana-us-expansion/\">открыла</a> бесплатный доступ к персонализированной генерации изображений в Gemini для пользователей из США.</b>\n\n🔗 <a href=\"https://t.me/vistehno/5402\">публикация Искусственный интеллект. Высокие технологии</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "322",
+    "timestamp": 1782921267
+  },
+  {
+    "text": "<b>ГК «Элемент» <a href=\"https://ict.moscow/news/gk-element-planiruet-postroit-zavod-po-proizvodstvu-poluprovodnikovykh-plastin-s-topologiei-55-40-nm/\">планирует построить</a> завод по производству полупроводниковых пластин с топологией 55–40 нм.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow/8375\">публикация ICT.Moscow</a>\n\n#ит_сектор",
+    "reaction": "🟢",
+    "msg_id": "325",
+    "timestamp": 1782921267
+  },
+  {
+    "text": "<b>«Еаптека» <a href=\"https://ict.moscow/news/eapteka-voshla-v-rvb-i-stala-chastiu-napravleniia-zdorove/\">вошла</a> в РВБ и стала частью направления «Здоровье».</b>\n\n🔗 <a href=\"https://t.me/ict_moscow/8375\">публикация ICT.Moscow</a>\n\n#ит_сектор",
+    "reaction": "🟢",
+    "msg_id": "326",
+    "timestamp": 1782921267
+  },
+  {
+    "text": "<b>«МегаФон» <a href=\"https://ict.moscow/news/rustore-zapustil-funktsiiu-konnekt-dlia-dostupa-k-rossiiskim-servisam-iz-za-rubezha/\">открыл</a> абонентам доступ к инструменту для подписи исходящих звонков.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow/8375\">публикация ICT.Moscow</a>\n\n#телеком",
+    "reaction": "🔴",
+    "msg_id": "327",
+    "timestamp": 1782921267
+  },
+  {
+    "text": "<b>RuStore <a href=\"https://ict.moscow/news/rustore-zapustil-funktsiiu-konnekt-dlia-dostupa-k-rossiiskim-servisam-iz-za-rubezha/\">запустил</a> функцию «Коннект» для доступа к российским сервисам из-за рубежа.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow/8375\">публикация ICT.Moscow</a>\n\n#ит_сектор",
+    "reaction": "🔴",
+    "msg_id": "328",
+    "timestamp": 1782921267
+  },
+  {
+    "text": "<b>Минпромторг России <a href=\"https://ict.moscow/news/minpromtorg-rossii-sozdast-sistemu-sertifikatsii-dlia-platform-promyshlennoi-avtomatizatsii/\">создаст</a> систему сертификации для платформ промышленной автоматизации.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow/8375\">публикация ICT.Moscow</a>\n\n#ит_сектор",
+    "reaction": "🔴",
+    "msg_id": "329",
+    "timestamp": 1782921267
+  },
+  {
+    "text": "",
+    "reaction": "🔴",
+    "msg_id": "331",
+    "timestamp": 1782921267
+  },
+  {
+    "text": "<b>Google представила TabFM — фундаментальную модель для задач классификации и регрессии на табличных данных.</b>\n- Модель работает без обучения, настройки и гиперпараметров — достаточно загрузить данные и получить предсказание за один проход.\n- TabFM читает обучающие примеры как контекст и сразу предсказывает новые строки без обновления весов и итераций.\n- Модель является аналогом TimesFM для временных рядов, но предназначена для табличных данных.\n\n🔗 <a href=\"https://t.me/blockchainrf/13156\">публикация Все о блокчейн/мозге/space/WEB 3.0 в России и мире</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🔴",
+    "msg_id": "332",
+    "timestamp": 1782921267
   }
 ]
