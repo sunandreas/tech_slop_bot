@@ -21,6 +21,8 @@ HEADERS       = {"User-Agent": "Mozilla/5.0 (compatible; NewsBot/1.0)"}
 CAPTION_LIMIT = 1024
 
 LABELS_FILE   = "labels.json"
+CACHE_FILE    = "msg_cache.json"
+CACHE_MAX     = 300
 ALLOWED_HASHTAGS = {
     "ии_модели_и_агенты", "ии_инфраструктура", "ии_внедрение",
     "ии_рынок", "ии_регулирование",
@@ -82,6 +84,26 @@ def load_labels() -> list:
 def save_labels(labels: list) -> None:
     with open(LABELS_FILE, "w", encoding="utf-8") as f:
         json.dump(labels, f, indent=2, ensure_ascii=False)
+
+
+def load_cache() -> dict:
+    if not os.path.exists(CACHE_FILE):
+        return {}
+    try:
+        with open(CACHE_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def save_cache(cache: dict) -> None:
+    # Обрезаем до последних CACHE_MAX записей по message_id
+    if len(cache) > CACHE_MAX:
+        sorted_keys = sorted(cache.keys(), key=lambda k: int(k) if k.isdigit() else 0)
+        for k in sorted_keys[:len(cache) - CACHE_MAX]:
+            del cache[k]
+    with open(CACHE_FILE, "w", encoding="utf-8") as f:
+        json.dump(cache, f, ensure_ascii=False)
 
 
 def load_standardization_prompt() -> str:
@@ -408,7 +430,7 @@ def standardize_post(text: str, state: dict) -> list[dict]:
     return fallback
 
 
-def send_text_news(text: str, state: dict) -> bool:
+def send_text_news(text: str) -> bool:
     """Отправляет текстовое сообщение новости и кэширует message_id → текст для реакций."""
     result = tg(
         "sendMessage",
@@ -420,9 +442,9 @@ def send_text_news(text: str, state: dict) -> bool:
     if result and isinstance(result, dict):
         msg_id = str(result.get("message_id", ""))
         if msg_id:
-            if "msg_cache" not in state:
-                state["msg_cache"] = {}
-            state["msg_cache"][msg_id] = text
+            cache = load_cache()
+            cache[msg_id] = text
+            save_cache(cache)
     return result is not None
 
 
@@ -497,9 +519,9 @@ def send_post(post: dict, channel: str, channel_name: str, state: dict) -> bool:
             # весь текст с футером и хэштегом отправляем отдельным
             # сообщением (без дублирования футера в подписи).
             if not fits_caption:
-                ok &= send_text_news(full_text, state)
+                ok &= send_text_news(full_text)
         else:
-            ok &= send_text_news(full_text, state)
+            ok &= send_text_news(full_text)
 
     return ok
 
@@ -547,7 +569,7 @@ def handle_reaction(update: dict, state: dict) -> None:
             return  # Реакция убрана — не интересно
 
         msg_id  = str(mr.get("message_id", ""))
-        cache   = state.get("msg_cache", {})
+        cache   = load_cache()
         text    = cache.get(msg_id, "")
 
         reaction  = new_reactions[0]
@@ -649,19 +671,8 @@ def main():
         print(f"[SKIP] Предыдущий прогон завершился {now - last_run}с назад, пропускаем")
         return
 
-    # Инициализация кэша message_id → текст
-    if "msg_cache" not in state:
-        state["msg_cache"] = {}
-
     process_commands(state)
     process_channels(state)
-
-    # Обрезаем кэш до последних 300 сообщений
-    cache = state["msg_cache"]
-    if len(cache) > 300:
-        sorted_keys = sorted(cache.keys(), key=lambda k: int(k) if k.isdigit() else 0)
-        for k in sorted_keys[:len(cache) - 300]:
-            del cache[k]
 
     state["last_run"] = int(time.time())
     save_state(state)
