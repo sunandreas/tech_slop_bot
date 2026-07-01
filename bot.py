@@ -428,6 +428,9 @@ def send_text_with_vote(text: str) -> Optional[dict]:
     )
 
 
+SENTENCE_ENDERS = (".", "!", "?", "…")
+
+
 def ensure_period(text: str) -> str:
     """Гарантирует точку (или другой завершающий знак) в конце текста."""
     text = text.rstrip()
