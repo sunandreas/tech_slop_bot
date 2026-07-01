@@ -13,16 +13,19 @@ MIMO_API_KEY  = os.environ["MI_API"]
 
 STATE_FILE    = "channels.json"
 PROMPT_FILE   = "standardization_prompt.txt"
+LABELS_FILE   = "labels.json"
+CACHE_FILE    = "msg_cache.json"
+
 API_URL       = f"https://api.telegram.org/bot{BOT_TOKEN}"
 TG_WEB        = "https://t.me/s"
 MIMO_API_URL  = "https://api.xiaomimimo.com/v1/chat/completions"
 MIMO_MODEL    = "mimo-v2.5-pro"
 HEADERS       = {"User-Agent": "Mozilla/5.0 (compatible; NewsBot/1.0)"}
-CAPTION_LIMIT = 1024
 
-LABELS_FILE   = "labels.json"
-CACHE_FILE    = "msg_cache.json"
-CACHE_MAX     = 2000
+CAPTION_LIMIT   = 1024
+CACHE_MAX       = 2000
+SENTENCE_ENDERS = (".", "!", "?", "…")
+
 ALLOWED_HASHTAGS = {
     "ии_модели_и_агенты", "ии_инфраструктура", "ии_внедрение",
     "ии_рынок", "ии_регулирование",
@@ -32,6 +35,10 @@ ALLOWED_HASHTAGS = {
     "другое",
 }
 DEFAULT_HASHTAG = "другое"
+
+CHANNEL_CLEANUPS = {
+    "ict_moscow": "trailing_link_paragraph",
+}
 
 HELP_TEXT = (
     "📡 <b>Tech Slop Bot</b> — ИИ-агент для мониторинга ИТ-трендов\n\n"
@@ -48,21 +55,15 @@ HELP_TEXT = (
 )
 
 
-# ── State ─────────────────────────────────────────────────────────────────────
+# ── Persistence ───────────────────────────────────────────────────────────────
 def load_state() -> dict:
     with open(STATE_FILE, "r", encoding="utf-8") as f:
         state = json.load(f)
-
-    # Миграция старого формата (channel -> int) в новый
-    # (channel -> {"name": str, "last_seen": int}), если нужно.
-    channels = state.get("channels", {})
-    migrated = {}
-    for ch, value in channels.items():
-        if isinstance(value, dict):
-            migrated[ch] = value
-        else:
-            migrated[ch] = {"name": f"@{ch}", "last_seen": value}
-    state["channels"] = migrated
+    # Миграция плоского формата {channel: int} → {channel: {name, last_seen}}
+    state["channels"] = {
+        ch: (v if isinstance(v, dict) else {"name": f"@{ch}", "last_seen": v})
+        for ch, v in state.get("channels", {}).items()
+    }
     return state
 
 
@@ -71,14 +72,18 @@ def save_state(state: dict) -> None:
         json.dump(state, f, indent=2, ensure_ascii=False)
 
 
-def load_labels() -> list:
-    if not os.path.exists(LABELS_FILE):
-        return []
+def _load_json(path: str, default):
+    if not os.path.exists(path):
+        return default
     try:
-        with open(LABELS_FILE, "r", encoding="utf-8") as f:
+        with open(path, "r", encoding="utf-8") as f:
             return json.load(f)
     except Exception:
-        return []
+        return default
+
+
+def load_labels() -> list:  return _load_json(LABELS_FILE, [])
+def load_cache()  -> dict:  return _load_json(CACHE_FILE,  {})
 
 
 def save_labels(labels: list) -> None:
@@ -86,32 +91,16 @@ def save_labels(labels: list) -> None:
         json.dump(labels, f, indent=2, ensure_ascii=False)
 
 
-def load_cache() -> dict:
-    if not os.path.exists(CACHE_FILE):
-        return {}
-    try:
-        with open(CACHE_FILE, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except Exception:
-        return {}
-
-
 def save_cache(cache: dict) -> None:
-    # Обрезаем до последних CACHE_MAX записей по message_id
     if len(cache) > CACHE_MAX:
-        sorted_keys = sorted(cache.keys(), key=lambda k: int(k) if k.isdigit() else 0)
-        for k in sorted_keys[:len(cache) - CACHE_MAX]:
+        for k in sorted(cache, key=lambda k: int(k) if k.isdigit() else 0)[:len(cache) - CACHE_MAX]:
             del cache[k]
     with open(CACHE_FILE, "w", encoding="utf-8") as f:
         json.dump(cache, f, ensure_ascii=False)
 
 
-def load_standardization_prompt() -> str:
-    with open(PROMPT_FILE, "r", encoding="utf-8") as f:
-        return f.read()
-
-
-STANDARDIZATION_PROMPT = load_standardization_prompt()
+with open(PROMPT_FILE, encoding="utf-8") as _f:
+    STANDARDIZATION_PROMPT = _f.read()
 
 
 # ── Telegram API ──────────────────────────────────────────────────────────────
@@ -133,61 +122,50 @@ def get_updates(offset: int) -> list:
 
 
 def send_message(text: str) -> None:
-    tg(
-        "sendMessage",
-        chat_id=CHAT_ID,
-        text=text,
-        parse_mode="HTML",
-        link_preview_options={"is_disabled": True},
-    )
+    tg("sendMessage", chat_id=CHAT_ID, text=text,
+       parse_mode="HTML", link_preview_options={"is_disabled": True})
+
+
+def send_text_news(text: str, cache: dict) -> bool:
+    result = tg("sendMessage", chat_id=CHAT_ID, text=text,
+                parse_mode="HTML", link_preview_options={"is_disabled": True})
+    if result and isinstance(result, dict) and (mid := str(result.get("message_id", ""))):
+        cache[mid] = text
+    return result is not None
 
 
 def send_photo_file(photo_bytes: bytes, caption: Optional[str]) -> bool:
-    """Отправляет одно фото как файл, с подписью если она задана."""
     try:
         data = {"chat_id": CHAT_ID}
         if caption:
-            data["caption"]    = caption
-            data["parse_mode"] = "HTML"
-        r = requests.post(
-            f"{API_URL}/sendPhoto",
-            data=data,
-            files={"photo": ("photo.jpg", photo_bytes, "image/jpeg")},
-            timeout=30,
-        )
-        data_resp = r.json()
-        if data_resp.get("ok"):
+            data.update({"caption": caption, "parse_mode": "HTML"})
+        r = requests.post(f"{API_URL}/sendPhoto", data=data,
+                          files={"photo": ("photo.jpg", photo_bytes, "image/jpeg")}, timeout=30)
+        resp = r.json()
+        if resp.get("ok"):
             return True
-        print(f"[TG ERROR] sendPhoto: {data_resp.get('description')}")
+        print(f"[TG ERROR] sendPhoto: {resp.get('description')}")
     except Exception as e:
         print(f"[REQUEST ERROR] sendPhoto: {e}")
     return False
 
 
 def send_media_group_files(images_bytes: list[bytes], caption: Optional[str]) -> bool:
-    """Отправляет альбом фото как файлы, с подписью на первом если она задана."""
     try:
-        files = {}
-        media = []
+        files, media = {}, []
         for i, img in enumerate(images_bytes):
-            name = f"attach{i}"
-            files[name] = (f"photo{i}.jpg", img, "image/jpeg")
-            item = {"type": "photo", "media": f"attach://{name}"}
+            files[f"attach{i}"] = (f"photo{i}.jpg", img, "image/jpeg")
+            item = {"type": "photo", "media": f"attach://attach{i}"}
             if i == 0 and caption:
-                item["caption"]    = caption
-                item["parse_mode"] = "HTML"
+                item.update({"caption": caption, "parse_mode": "HTML"})
             media.append(item)
-
-        r = requests.post(
-            f"{API_URL}/sendMediaGroup",
-            data={"chat_id": CHAT_ID, "media": json.dumps(media)},
-            files=files,
-            timeout=60,
-        )
-        data = r.json()
-        if data.get("ok"):
+        r = requests.post(f"{API_URL}/sendMediaGroup",
+                          data={"chat_id": CHAT_ID, "media": json.dumps(media)},
+                          files=files, timeout=60)
+        resp = r.json()
+        if resp.get("ok"):
             return True
-        print(f"[TG ERROR] sendMediaGroup: {data.get('description')}")
+        print(f"[TG ERROR] sendMediaGroup: {resp.get('description')}")
     except Exception as e:
         print(f"[REQUEST ERROR] sendMediaGroup: {e}")
     return False
@@ -195,7 +173,6 @@ def send_media_group_files(images_bytes: list[bytes], caption: Optional[str]) ->
 
 # ── HTML parsing ──────────────────────────────────────────────────────────────
 def extract_html_text(element) -> str:
-    """Рекурсивно извлекает текст с Telegram-совместимым HTML форматированием."""
     result = ""
     for child in element.children:
         if isinstance(child, NavigableString):
@@ -215,21 +192,18 @@ def extract_html_text(element) -> str:
         elif child.name == "pre":
             result += f"<pre>{extract_html_text(child)}</pre>"
         elif child.name == "a":
-            href = child.get("href", "")
-            result += f'<a href="{href}">{extract_html_text(child)}</a>'
+            result += f'<a href="{child.get("href", "")}">{extract_html_text(child)}</a>'
         else:
             result += extract_html_text(child)
     return result
 
 
 def extract_image_url(style: str) -> Optional[str]:
-    """Извлекает URL картинки из CSS background-image."""
-    match = re.search(r"background-image:url\('(.+?)'\)", style)
-    return match.group(1) if match else None
+    m = re.search(r"background-image:url\('(.+?)'\)", style)
+    return m.group(1) if m else None
 
 
 def download_image(url: str) -> Optional[bytes]:
-    """Скачивает картинку и возвращает байты."""
     try:
         r = requests.get(url, headers=HEADERS, timeout=15)
         if r.status_code == 200:
@@ -239,242 +213,143 @@ def download_image(url: str) -> Optional[bytes]:
     return None
 
 
+# ── Channel-specific cleanup ──────────────────────────────────────────────────
+def clean_post_text(text: str, channel: str) -> str:
+    if CHANNEL_CLEANUPS.get(channel.lower()) == "trailing_link_paragraph":
+        paras = text.split("\n\n")
+        while paras and paras[-1].strip().startswith("🔗"):
+            paras.pop()
+        text = "\n\n".join(paras).strip()
+    return text
+
+
 # ── Parsing ───────────────────────────────────────────────────────────────────
 def fetch_channel_name(channel: str) -> str:
-    """
-    Извлекает отображаемое имя канала со страницы t.me/s/channel.
-    Если не удалось — возвращает @username как fallback.
-    """
     try:
         r = requests.get(f"{TG_WEB}/{channel}", headers=HEADERS, timeout=10)
         if r.status_code == 200:
             soup = BeautifulSoup(r.text, "html.parser")
-            title_div = soup.find("div", class_="tgme_channel_info_header_title")
-            if title_div:
-                name = title_div.get_text(strip=True)
-                if name:
-                    return name
+            div = soup.find("div", class_="tgme_channel_info_header_title")
+            if div and (name := div.get_text(strip=True)):
+                return name
     except Exception as e:
         print(f"[CHANNEL NAME ERROR] {channel}: {e}")
     return f"@{channel}"
 
 
 def fetch_posts(channel: str) -> list[dict]:
-    """Парсит t.me/s/channel и возвращает список постов с текстом и картинками."""
     try:
         r = requests.get(f"{TG_WEB}/{channel}", headers=HEADERS, timeout=10)
         if r.status_code != 200:
             return []
-        soup = BeautifulSoup(r.text, "html.parser")
         posts: dict[int, dict] = {}
-
-        for msg in soup.find_all("div", class_="tgme_widget_message"):
-            date_link = msg.find("a", class_="tgme_widget_message_date")
-            if not date_link:
+        for msg in BeautifulSoup(r.text, "html.parser").find_all("div", class_="tgme_widget_message"):
+            link = msg.find("a", class_="tgme_widget_message_date")
+            if not link:
                 continue
-            href = date_link.get("href", "")
-            part = href.rstrip("/").split("/")[-1]
+            part = link.get("href", "").rstrip("/").split("/")[-1]
             if not part.isdigit():
                 continue
-            post_id = int(part)
-
-            if post_id not in posts:
-                posts[post_id] = {
-                    "id":     post_id,
-                    "text":   "",
-                    "images": [],
-                    "url":    f"https://t.me/{channel}/{post_id}",
-                }
-
-            # Текст поста
+            pid = int(part)
+            if pid not in posts:
+                posts[pid] = {"id": pid, "text": "", "images": [],
+                              "url": f"https://t.me/{channel}/{pid}"}
             text_div = msg.find("div", class_="tgme_widget_message_text")
-            if text_div and not posts[post_id]["text"]:
-                posts[post_id]["text"] = extract_html_text(text_div).strip()
-
-            # Картинки
+            if text_div and not posts[pid]["text"]:
+                posts[pid]["text"] = extract_html_text(text_div).strip()
             for photo in msg.find_all("a", class_="tgme_widget_message_photo_wrap"):
-                url = extract_image_url(photo.get("style", ""))
-                if url and url not in posts[post_id]["images"]:
-                    posts[post_id]["images"].append(url)
-
+                if url := extract_image_url(photo.get("style", "")):
+                    if url not in posts[pid]["images"]:
+                        posts[pid]["images"].append(url)
         return sorted(posts.values(), key=lambda p: p["id"])
     except Exception as e:
         print(f"[PARSE ERROR] {channel}: {e}")
         return []
 
 
-# ── Channel-specific text cleanup ────────────────────────────────────────────
-CHANNEL_CLEANUPS = {
-    "ict_moscow": "trailing_link_paragraph",
-}
-
-
-def clean_post_text(text: str, channel: str) -> str:
-    """Применяет channel-специфичную очистку текста перед стандартизацией."""
-    rule = CHANNEL_CLEANUPS.get(channel.lower())
-
-    if rule == "trailing_link_paragraph":
-        # @ict_moscow всегда заканчивает посты абзацем со старой связанной новостью,
-        # помеченным эмодзи 🔗. Убираем последний абзац если он начинается с 🔗.
-        paragraphs = text.split("\n\n")
-        while paragraphs:
-            last = paragraphs[-1].strip()
-            if last.startswith("🔗"):
-                paragraphs.pop()
-            else:
-                break
-        text = "\n\n".join(paragraphs).strip()
-
-    return text
-
-
-
-def strip_json_fence(content: str) -> str:
-    """Убирает обёртку ```json ... ``` если модель её добавила."""
-    content = content.strip()
-    if content.startswith("```"):
-        content = re.sub(r"^```json?\s*|\s*```$", "", content, flags=re.MULTILINE).strip()
-    return content
-
-
+# ── Standardization (MiMo) ───────────────────────────────────────────────────
 def standardize_post(text: str, state: dict) -> list[dict]:
-    """
-    Прогоняет сырой текст поста через MiMo и возвращает список
-    стандартизированных новостей вида {"headline": str, "bullets": [str]}.
-    При временных сбоях (сеть, невалидный ответ) делает одну повторную
-    попытку с паузой. При окончательной ошибке — fallback на исходный
-    текст без обработки, чтобы не терять контент. При первой ошибке за
-    сессию шлёт разовое предупреждение пользователю.
-    """
     if not text.strip():
         return []
 
     fallback = [{"headline": text, "bullets": [], "hashtag": DEFAULT_HASHTAG}]
 
-    def report_failure(reason: str) -> None:
+    def report(reason: str) -> None:
         print(f"[MIMO ERROR] {reason}")
         if not state.get("mimo_alert_sent"):
-            send_message(
-                f"⚠️ Стандартизация новостей не работает: {reason}\n"
-                f"Посты приходят без обработки, пока проблема не устранена."
-            )
+            send_message(f"⚠️ Стандартизация не работает: {reason}\n"
+                         "Посты приходят без обработки.")
             state["mimo_alert_sent"] = True
 
     for attempt in range(2):
-        is_last_attempt = attempt == 1
         try:
             r = requests.post(
                 MIMO_API_URL,
-                headers={
-                    "Authorization": f"Bearer {MIMO_API_KEY}",
-                    "Content-Type": "application/json",
-                },
-                json={
-                    "model": MIMO_MODEL,
-                    "messages": [
-                        {"role": "system", "content": STANDARDIZATION_PROMPT},
-                        {"role": "user", "content": text},
-                    ],
-                },
+                headers={"Authorization": f"Bearer {MIMO_API_KEY}",
+                         "Content-Type": "application/json"},
+                json={"model": MIMO_MODEL, "messages": [
+                    {"role": "system", "content": STANDARDIZATION_PROMPT},
+                    {"role": "user",   "content": text},
+                ]},
                 timeout=180,
             )
-
             try:
                 data = r.json()
             except ValueError:
-                if not is_last_attempt:
+                if attempt == 0:
                     time.sleep(3)
                     continue
-                snippet = r.text[:200].replace("\n", " ")
-                report_failure(f"невалидный JSON в ответе (HTTP {r.status_code}): {snippet!r}")
+                report(f"невалидный JSON (HTTP {r.status_code}): {r.text[:200]!r}")
                 return fallback
 
             if "error" in data:
-                # Ошибка от самого API (баланс, ключ и т.п.) — повтор не поможет
-                report_failure(str(data["error"]))
+                report(str(data["error"]))
                 return fallback
 
-            content = data["choices"][0]["message"]["content"]
-            content = strip_json_fence(content)
-            items   = json.loads(content)
+            raw = data["choices"][0]["message"]["content"].strip()
+            if raw.startswith("```"):
+                raw = re.sub(r"^```json?\s*|\s*```$", "", raw, flags=re.MULTILINE).strip()
+            items = json.loads(raw)
 
             if not isinstance(items, list):
-                report_failure("некорректный формат ответа")
+                report("некорректный формат ответа")
                 return fallback
 
-            # Валидация структуры каждого элемента
             for item in items:
                 if "headline" not in item:
-                    report_failure("элемент без headline в ответе")
+                    report("элемент без headline")
                     return fallback
                 item.setdefault("bullets", [])
-
                 tag = str(item.get("hashtag", "")).strip().lstrip("#")
                 if tag not in ALLOWED_HASHTAGS:
-                    print(f"[MIMO WARNING] Неизвестный/отсутствующий hashtag '{tag}', заменён на '{DEFAULT_HASHTAG}'")
+                    print(f"[MIMO WARNING] hashtag '{tag}' → '{DEFAULT_HASHTAG}'")
                     tag = DEFAULT_HASHTAG
                 item["hashtag"] = tag
 
-            # Успешный вызов — сбрасываем флаг, чтобы при повторном сбое
-            # пользователь снова получил уведомление
             state["mimo_alert_sent"] = False
             return items
 
         except Exception as e:
-            if not is_last_attempt:
+            if attempt == 0:
                 time.sleep(3)
                 continue
-            report_failure(f"ошибка запроса ({e})")
+            report(f"ошибка запроса ({e})")
             return fallback
 
     return fallback
 
 
-def send_text_news(text: str) -> bool:
-    """Отправляет текстовое сообщение новости и кэширует message_id → текст для реакций."""
-    result = tg(
-        "sendMessage",
-        chat_id=CHAT_ID,
-        text=text,
-        parse_mode="HTML",
-        link_preview_options={"is_disabled": True},
-    )
-    if result and isinstance(result, dict):
-        msg_id = str(result.get("message_id", ""))
-        if msg_id:
-            cache = load_cache()
-            cache[msg_id] = text
-            save_cache(cache)
-    return result is not None
-
-
-SENTENCE_ENDERS = (".", "!", "?", "…")
-
-
+# ── Formatting ────────────────────────────────────────────────────────────────
 def ensure_period(text: str) -> str:
-    """Гарантирует точку (или другой завершающий знак) в конце текста."""
     text = text.rstrip()
-    if text and not text.endswith(SENTENCE_ENDERS):
-        text += "."
-    return text
+    return text + "." if text and not text.endswith(SENTENCE_ENDERS) else text
 
 
-def format_standardized_item(item: dict) -> str:
-    """
-    Собирает headline (жирным) + bullets в готовый текст.
-    Headline и каждый bullet гарантированно заканчиваются точкой
-    (страховка на случай если модель её не поставила).
-    Если bullets ровно один — это не самостоятельный список, дописываем
-    его как продолжение headline одним предложением. Список (дефисом)
-    рисуем только при 2+ буллитах. Hashtag и ссылка добавляются отдельно
-    в send_post, после этого текста.
-    """
+def format_item(item: dict) -> str:
     headline = ensure_period(item["headline"])
     bullets  = [ensure_period(b) for b in item["bullets"]]
-
     if len(bullets) == 1:
         return f"<b>{headline}</b> {bullets[0]}"
-
     text = f"<b>{headline}</b>"
     if bullets:
         text += "\n" + "\n".join(f"- {b}" for b in bullets)
@@ -482,46 +357,33 @@ def format_standardized_item(item: dict) -> str:
 
 
 # ── Sending posts ─────────────────────────────────────────────────────────────
-def send_post(post: dict, channel: str, channel_name: str, state: dict) -> bool:
+def send_post(post: dict, channel: str, channel_name: str, state: dict, cache: dict) -> bool:
     footer = f'\n\n🔗 <a href="{post["url"]}">публикация {channel_name}</a>'
 
-    # Нет ни текста ни картинок — видео или документ
     if not post["text"] and not post["images"]:
-        return tg(
-            "sendMessage",
-            chat_id=CHAT_ID,
-            text=f"📎 Медиафайл (видео/документ){footer}",
-            parse_mode="HTML",
-            link_preview_options={"is_disabled": True},
-        ) is not None
+        return tg("sendMessage", chat_id=CHAT_ID,
+                  text=f"📎 Медиафайл (видео/документ){footer}",
+                  parse_mode="HTML", link_preview_options={"is_disabled": True}) is not None
 
-    items = standardize_post(clean_post_text(post["text"], channel), state) if post["text"] else [{"headline": "", "bullets": [], "hashtag": DEFAULT_HASHTAG}]
-    images_bytes = [b for url in post["images"] if (b := download_image(url)) is not None]
+    raw_text = clean_post_text(post["text"], channel) if post["text"] else ""
+    items = standardize_post(raw_text, state) if raw_text else [
+        {"headline": "", "bullets": [], "hashtag": DEFAULT_HASHTAG}
+    ]
+    images = [b for url in post["images"] if (b := download_image(url)) is not None]
 
     ok = True
     for i, item in enumerate(items):
-        hashtag = item.get("hashtag", DEFAULT_HASHTAG)
-        body    = format_standardized_item(item)
-        full_text = body + footer + f"\n\n#{hashtag}"
+        full_text = format_item(item) + footer + f"\n\n#{item.get('hashtag', DEFAULT_HASHTAG)}"
 
-        # Картинки прикладываем только к первому сообщению из пакета
-        if i == 0 and images_bytes:
-            fits_caption = len(full_text) <= CAPTION_LIMIT
-            caption = full_text if fits_caption else None
-
-            if len(images_bytes) == 1:
-                sent = send_photo_file(images_bytes[0], caption)
-            else:
-                sent = send_media_group_files(images_bytes, caption)
-            ok &= sent
-
-            # Текст не влез в подпись — фото уходит без подписи,
-            # весь текст с футером и хэштегом отправляем отдельным
-            # сообщением (без дублирования футера в подписи).
-            if not fits_caption:
-                ok &= send_text_news(full_text)
+        if i == 0 and images:
+            fits = len(full_text) <= CAPTION_LIMIT
+            caption = full_text if fits else None
+            ok &= (send_photo_file(images[0], caption) if len(images) == 1
+                   else send_media_group_files(images, caption))
+            if not fits:
+                ok &= send_text_news(full_text, cache)
         else:
-            ok &= send_text_news(full_text)
+            ok &= send_text_news(full_text, cache)
 
     return ok
 
@@ -553,27 +415,21 @@ def cmd_list(state: dict) -> None:
     if not channels:
         send_message("Список пуст. Добавь канал через /add @channel")
         return
-    items = "\n".join(f"• {info['name']} (@{ch})" for ch, info in channels.items())
-    send_message(f"📋 <b>Твои каналы:</b>\n\n{items}")
+    send_message("📋 <b>Твои каналы:</b>\n\n" +
+                 "\n".join(f"• {info['name']} (@{ch})" for ch, info in channels.items()))
 
 
-def handle_reaction(update: dict, state: dict) -> None:
-    """Обрабатывает нативную реакцию на сообщение и сохраняет метку в labels.json."""
+def handle_reaction(update: dict, cache: dict) -> None:
     try:
         mr = update.get("message_reaction", {})
-        if not mr:
-            return
-
         new_reactions = mr.get("new_reaction", [])
         if not new_reactions:
-            return  # Реакция убрана — не интересно
+            return
 
-        msg_id  = str(mr.get("message_id", ""))
-        cache   = load_cache()
-        text    = cache.get(msg_id, "")
+        msg_id   = str(mr.get("message_id", ""))
+        reaction = new_reactions[0]
+        rtype    = reaction.get("type", "")
 
-        reaction  = new_reactions[0]
-        rtype     = reaction.get("type", "")
         if rtype == "emoji":
             emoji = reaction.get("emoji", "")
         elif rtype == "custom_emoji":
@@ -582,28 +438,21 @@ def handle_reaction(update: dict, state: dict) -> None:
             return
 
         labels = load_labels()
-        labels.append({
-            "text":      text,
-            "reaction":  emoji,
-            "msg_id":    msg_id,
-            "timestamp": int(time.time()),
-        })
+        labels.append({"text": cache.get(msg_id, ""), "reaction": emoji,
+                        "msg_id": msg_id, "timestamp": int(time.time())})
         save_labels(labels)
-        print(f"[REACTION] {emoji!r} на msg_id={msg_id}, всего меток: {len(labels)}")
+        print(f"[REACTION] {emoji!r} на msg_id={msg_id}, всего: {len(labels)}")
 
     except Exception as e:
         print(f"[REACTION ERROR] {e}")
 
 
-def process_commands(state: dict) -> None:
-    """Читает команды и реакции от пользователя и обрабатывает их."""
-    updates = get_updates(state.get("offset", 0))
-    for update in updates:
+def process_commands(state: dict, cache: dict) -> None:
+    for update in get_updates(state.get("offset", 0)):
         state["offset"] = update["update_id"] + 1
 
-        # Нативные реакции на сообщения
         if "message_reaction" in update:
-            handle_reaction(update, state)
+            handle_reaction(update, cache)
             continue
 
         msg = update.get("message", {})
@@ -612,67 +461,55 @@ def process_commands(state: dict) -> None:
         text = msg.get("text", "").strip()
         if not text.startswith("/"):
             continue
+
         parts = text.split()
-        cmd = parts[0].lower()
-        arg = parts[1].lstrip("@").lower() if len(parts) > 1 else ""
+        cmd   = parts[0].lower()
+        arg   = parts[1].lstrip("@").lower() if len(parts) > 1 else ""
 
         if cmd in ("/start", "/help"):
             send_message(HELP_TEXT)
         elif cmd == "/add":
-            if arg:
-                cmd_add(arg, state)
-            else:
-                send_message("Использование: /add @channel")
+            cmd_add(arg, state) if arg else send_message("Использование: /add @channel")
         elif cmd == "/remove":
-            if arg:
-                cmd_remove(arg, state)
-            else:
-                send_message("Использование: /remove @channel")
+            cmd_remove(arg, state) if arg else send_message("Использование: /remove @channel")
         elif cmd == "/list":
             cmd_list(state)
 
 
 # ── Forwarding ────────────────────────────────────────────────────────────────
-def process_channels(state: dict) -> None:
-    """Для каждого канала находит новые посты и отправляет их."""
+def process_channels(state: dict, cache: dict) -> None:
     for channel, info in list(state["channels"].items()):
-        # Бэкфилл имени для каналов, мигрированных со старого формата
         if info["name"] == f"@{channel}":
-            real_name = fetch_channel_name(channel)
-            if real_name != f"@{channel}":
-                info["name"] = real_name
+            if (real := fetch_channel_name(channel)) != f"@{channel}":
+                info["name"] = real
 
-        last_seen = info["last_seen"]
-        posts     = fetch_posts(channel)
-        new_posts = [p for p in posts if p["id"] > last_seen]
-
+        new_posts = [p for p in fetch_posts(channel) if p["id"] > info["last_seen"]]
         if not new_posts:
             continue
 
         print(f"[{channel}] новых постов: {len(new_posts)}")
-
         for post in new_posts:
-            if send_post(post, channel, info["name"], state):
+            if send_post(post, channel, info["name"], state, cache):
                 info["last_seen"] = post["id"]
-                save_state(state)  # Сохраняем сразу — если скрипт упадёт дальше,
-                                   # этот пост уже не будет переобработан
             else:
                 print(f"[SEND ERROR] {channel}/{post['id']}")
+
+        save_state(state)  # после каждого канала — чтобы не переобработать при падении
 
 
 # ── Entry point ───────────────────────────────────────────────────────────────
 def main():
     state = load_state()
 
-    # Защита от двойных запусков
     now = int(time.time())
-    last_run = state.get("last_run", 0)
-    if now - last_run < 60:
-        print(f"[SKIP] Предыдущий прогон завершился {now - last_run}с назад, пропускаем")
+    if now - state.get("last_run", 0) < 60:
+        print(f"[SKIP] Предыдущий прогон завершился {now - state.get('last_run', 0)}с назад")
         return
 
-    process_commands(state)
-    process_channels(state)
+    cache = load_cache()
+    process_commands(state, cache)
+    process_channels(state, cache)
+    save_cache(cache)
 
     state["last_run"] = int(time.time())
     save_state(state)
