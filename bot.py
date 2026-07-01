@@ -96,7 +96,7 @@ def save_cache(cache: dict) -> None:
         for k in sorted(cache, key=lambda k: int(k) if k.isdigit() else 0)[:len(cache) - CACHE_MAX]:
             del cache[k]
     with open(CACHE_FILE, "w", encoding="utf-8") as f:
-        json.dump(cache, f, ensure_ascii=False)
+        json.dump(cache, f, indent=2, ensure_ascii=False)
 
 
 with open(PROMPT_FILE, encoding="utf-8") as _f:
@@ -438,8 +438,20 @@ def handle_reaction(update: dict, cache: dict) -> None:
             return
 
         labels = load_labels()
+        now    = int(time.time())
+
+        # Ищем существующую запись по msg_id — обновляем если нашли.
+        # Это корректно обрабатывает смену реакции: 🟡 → 🟢 не даст дубля в базе.
+        for entry in labels:
+            if entry.get("msg_id") == msg_id:
+                entry["reaction"]  = emoji
+                entry["timestamp"] = now
+                save_labels(labels)
+                print(f"[REACTION] обновлена → {emoji!r} на msg_id={msg_id}")
+                return
+
         labels.append({"text": cache.get(msg_id, ""), "reaction": emoji,
-                        "msg_id": msg_id, "timestamp": int(time.time())})
+                        "msg_id": msg_id, "timestamp": now})
         save_labels(labels)
         print(f"[REACTION] {emoji!r} на msg_id={msg_id}, всего: {len(labels)}")
 
