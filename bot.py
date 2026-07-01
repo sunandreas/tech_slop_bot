@@ -22,7 +22,7 @@ CAPTION_LIMIT = 1024
 
 LABELS_FILE   = "labels.json"
 CACHE_FILE    = "msg_cache.json"
-CACHE_MAX     = 300
+CACHE_MAX     = 2000
 ALLOWED_HASHTAGS = {
     "ии_модели_и_агенты", "ии_инфраструктура", "ии_внедрение",
     "ии_рынок", "ии_регулирование",
