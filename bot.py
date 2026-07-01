@@ -36,6 +36,14 @@ ALLOWED_HASHTAGS = {
 }
 DEFAULT_HASHTAG = "другое"
 
+CUSTOM_EMOJI_MAP = {
+    "5433757954476091117": "🔴",
+    "5434100306319256071": "🟢",
+    "5434047113149296288": "🟡",
+}
+
+
+
 CHANNEL_CLEANUPS = {
     "ict_moscow": "trailing_link_paragraph",
 }
@@ -433,7 +441,8 @@ def handle_reaction(update: dict, cache: dict) -> None:
         if rtype == "emoji":
             emoji = reaction.get("emoji", "")
         elif rtype == "custom_emoji":
-            emoji = reaction.get("custom_emoji_id", "")
+            raw_id = reaction.get("custom_emoji_id", "")
+            emoji  = CUSTOM_EMOJI_MAP.get(raw_id, raw_id)
         else:
             return
 
