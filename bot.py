@@ -20,6 +20,7 @@ MIMO_MODEL    = "mimo-v2.5-pro"
 HEADERS       = {"User-Agent": "Mozilla/5.0 (compatible; NewsBot/1.0)"}
 CAPTION_LIMIT = 1024
 
+LABELS_FILE   = "labels.json"
 ALLOWED_HASHTAGS = {
     "ии_модели_и_агенты", "ии_инфраструктура", "ии_внедрение",
     "ии_рынок", "ии_регулирование",
@@ -66,6 +67,21 @@ def load_state() -> dict:
 def save_state(state: dict) -> None:
     with open(STATE_FILE, "w", encoding="utf-8") as f:
         json.dump(state, f, indent=2, ensure_ascii=False)
+
+
+def load_labels() -> list:
+    if not os.path.exists(LABELS_FILE):
+        return []
+    try:
+        with open(LABELS_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return []
+
+
+def save_labels(labels: list) -> None:
+    with open(LABELS_FILE, "w", encoding="utf-8") as f:
+        json.dump(labels, f, indent=2, ensure_ascii=False)
 
 
 def load_standardization_prompt() -> str:
@@ -391,7 +407,25 @@ def standardize_post(text: str, state: dict) -> list[dict]:
     return fallback
 
 
-SENTENCE_ENDERS = (".", "!", "?", "…")
+VOTE_KEYBOARD = {
+    "inline_keyboard": [[
+        {"text": "🟢", "callback_data": "v:2"},
+        {"text": "🟡", "callback_data": "v:1"},
+        {"text": "🔴", "callback_data": "v:0"},
+    ]]
+}
+
+
+def send_text_with_vote(text: str) -> Optional[dict]:
+    """Отправляет текстовое сообщение с кнопками оценки."""
+    return tg(
+        "sendMessage",
+        chat_id=CHAT_ID,
+        text=text,
+        parse_mode="HTML",
+        link_preview_options={"is_disabled": True},
+        reply_markup=VOTE_KEYBOARD,
+    )
 
 
 def ensure_period(text: str) -> str:
@@ -462,21 +496,9 @@ def send_post(post: dict, channel: str, channel_name: str, state: dict) -> bool:
             # весь текст с футером и хэштегом отправляем отдельным
             # сообщением (без дублирования футера в подписи).
             if not fits_caption:
-                ok &= tg(
-                    "sendMessage",
-                    chat_id=CHAT_ID,
-                    text=full_text,
-                    parse_mode="HTML",
-                    link_preview_options={"is_disabled": True},
-                ) is not None
+                ok &= send_text_with_vote(full_text) is not None
         else:
-            ok &= tg(
-                "sendMessage",
-                chat_id=CHAT_ID,
-                text=full_text,
-                parse_mode="HTML",
-                link_preview_options={"is_disabled": True},
-            ) is not None
+            ok &= send_text_with_vote(full_text) is not None
 
     return ok
 
@@ -512,11 +534,55 @@ def cmd_list(state: dict) -> None:
     send_message(f"📋 <b>Твои каналы:</b>\n\n{items}")
 
 
+def handle_vote(update: dict) -> None:
+    """Обрабатывает нажатие кнопки 👍/👎 и сохраняет оценку в labels.json."""
+    cq = update.get("callback_query", {})
+    if not cq:
+        return
+
+    # Telegram требует обязательно отвечать на callback_query
+    tg("answerCallbackQuery", callback_query_id=cq["id"])
+
+    data = cq.get("data", "")
+    if not data.startswith("v:"):
+        return
+
+    label = int(data.split(":")[1])  # 1 = важно, 0 = мимо
+    msg   = cq.get("message", {})
+    text  = (msg.get("text") or msg.get("caption") or "").strip()
+
+    if not text:
+        return
+
+    # Убираем кнопки после нажатия — визуальный фидбек что оценка зафиксирована
+    tg("editMessageReplyMarkup",
+       chat_id=CHAT_ID,
+       message_id=msg["message_id"],
+       reply_markup={"inline_keyboard": []})
+
+    labels = load_labels()
+    labels.append({
+        "text":      text,
+        "label":     label,
+        "timestamp": int(time.time()),
+    })
+    save_labels(labels)
+    LABEL_EMOJI = {2: "🟢", 1: "🟡", 0: "🔴"}
+    print(f"[LABEL] {LABEL_EMOJI.get(label, '?')} сохранена, всего: {len(labels)}")
+
+
 def process_commands(state: dict) -> None:
-    """Читает команды от пользователя и обрабатывает их."""
+    """Читает команды и callback-ответы от пользователя и обрабатывает их."""
     updates = get_updates(state.get("offset", 0))
     for update in updates:
         state["offset"] = update["update_id"] + 1
+
+        # Обработка кнопок оценки
+        if "callback_query" in update:
+            if update["callback_query"].get("from", {}).get("id") == CHAT_ID:
+                handle_vote(update)
+            continue
+
         msg = update.get("message", {})
         if msg.get("chat", {}).get("id") != CHAT_ID:
             continue
