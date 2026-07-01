@@ -1,5 +1,5 @@
 {
-  "offset": 73857785,
+  "offset": 73857788,
   "channels": {
     "blockchainrf": {
       "name": "Все о блокчейн/мозге/space/WEB 3.0 в России и мире",
@@ -27,7 +27,7 @@
     },
     "ict_moscow_ai": {
       "name": "База знаний AI",
-      "last_seen": 5221
+      "last_seen": 5222
     },
     "icipr": {
       "name": "ЦИПР",
@@ -63,9 +63,9 @@
     },
     "disruptors_official": {
       "name": "Дизраптор",
-      "last_seen": 3622
+      "last_seen": 3623
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1782912252
+  "last_run": 1782912510
 }
