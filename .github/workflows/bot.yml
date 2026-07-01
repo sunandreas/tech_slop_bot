@@ -32,10 +32,11 @@ jobs:
         run: python bot.py
 
       - name: Commit state
+        if: always()
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add channels.json
+          git add channels.json labels.json msg_cache.json
           git diff --staged --quiet && exit 0
           git commit -m "update state"
           for i in 1 2 3 4 5; do
