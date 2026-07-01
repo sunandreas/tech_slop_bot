@@ -434,17 +434,29 @@ def handle_reaction(update: dict, cache: dict) -> None:
         if not new_reactions:
             return
 
-        msg_id   = str(mr.get("message_id", ""))
-        reaction = new_reactions[0]
-        rtype    = reaction.get("type", "")
+        msg_id = str(mr.get("message_id", ""))
+        now    = int(time.time())
 
-        if rtype == "emoji":
-            emoji = reaction.get("emoji", "")
-        elif rtype == "custom_emoji":
-            raw_id = reaction.get("custom_emoji_id", "")
-            emoji  = CUSTOM_EMOJI_MAP.get(raw_id, raw_id)
-        else:
+        # Реакция снята — удаляем запись из базы (пост стал неразмеченным)
+        if not new_reactions:
+            labels = load_labels()
+            before = len(labels)
+            labels = [e for e in labels if e.get("msg_id") != msg_id]
+            if len(labels) < before:
+                save_labels(labels)
+                print(f"[REACTION] удалена метка для msg_id={msg_id}")
             return
+
+        # Маппим все реакции и склеиваем через запятую если их несколько
+        def resolve(r: dict) -> str:
+            if r.get("type") == "emoji":
+                return r.get("emoji", "")
+            if r.get("type") == "custom_emoji":
+                raw = r.get("custom_emoji_id", "")
+                return CUSTOM_EMOJI_MAP.get(raw, raw)
+            return ""
+
+        emoji = ", ".join(filter(None, (resolve(r) for r in new_reactions)))
 
         labels = load_labels()
         now    = int(time.time())
