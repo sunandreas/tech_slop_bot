@@ -264,7 +264,32 @@ def fetch_posts(channel: str) -> list[dict]:
         return []
 
 
-# ── Standardization (MiMo) ───────────────────────────────────────────────────
+# ── Channel-specific text cleanup ────────────────────────────────────────────
+CHANNEL_CLEANUPS = {
+    "ict_moscow": "trailing_link_paragraph",
+}
+
+
+def clean_post_text(text: str, channel: str) -> str:
+    """Применяет channel-специфичную очистку текста перед стандартизацией."""
+    rule = CHANNEL_CLEANUPS.get(channel.lower())
+
+    if rule == "trailing_link_paragraph":
+        # @ict_moscow всегда заканчивает посты абзацем со старой связанной новостью,
+        # помеченным эмодзи 🔗. Убираем последний абзац если он начинается с 🔗.
+        paragraphs = text.split("\n\n")
+        while paragraphs:
+            last = paragraphs[-1].strip()
+            if last.startswith("🔗"):
+                paragraphs.pop()
+            else:
+                break
+        text = "\n\n".join(paragraphs).strip()
+
+    return text
+
+
+
 def strip_json_fence(content: str) -> str:
     """Убирает обёртку ```json ... ``` если модель её добавила."""
     content = content.strip()
@@ -413,7 +438,7 @@ def send_post(post: dict, channel: str, channel_name: str, state: dict) -> bool:
             link_preview_options={"is_disabled": True},
         ) is not None
 
-    items = standardize_post(post["text"], state) if post["text"] else [{"headline": "", "bullets": [], "hashtag": DEFAULT_HASHTAG}]
+    items = standardize_post(clean_post_text(post["text"], channel), state) if post["text"] else [{"headline": "", "bullets": [], "hashtag": DEFAULT_HASHTAG}]
     images_bytes = [b for url in post["images"] if (b := download_image(url)) is not None]
 
     ok = True
@@ -547,8 +572,21 @@ def process_channels(state: dict) -> None:
 # ── Entry point ───────────────────────────────────────────────────────────────
 def main():
     state = load_state()
+
+    # Защита от двойных запусков — если предыдущий прогон завершился
+    # менее 60 секунд назад, пропускаем этот запуск.
+    # Это страховка на случай если cron-job.org прислал двойной триггер
+    # или concurrency в bot.yml не сработал идеально.
+    now = int(time.time())
+    last_run = state.get("last_run", 0)
+    if now - last_run < 60:
+        print(f"[SKIP] Предыдущий прогон завершился {now - last_run}с назад, пропускаем")
+        return
+
     process_commands(state)
     process_channels(state)
+
+    state["last_run"] = int(time.time())
     save_state(state)
 
 
