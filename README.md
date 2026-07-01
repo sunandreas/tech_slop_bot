@@ -47,7 +47,7 @@ beautifulsoup4
 
 ---
 
-Built with [Claude](https://claude.ai) (Anthropic)
+Built with Claude Sonnet 5
 
 ## Разметка и фильтрация (в разработке)
 
