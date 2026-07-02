@@ -1,5 +1,5 @@
 {
-  "offset": 73857826,
+  "offset": 73857827,
   "channels": {
     "blockchainrf": {
       "name": "Все о блокчейн/мозге/space/WEB 3.0 в России и мире",
@@ -39,7 +39,7 @@
     },
     "ict_moscow_analytics": {
       "name": "Мониторинг аналитики об IT",
-      "last_seen": 6581
+      "last_seen": 6582
     },
     "sbmarketing": {
       "name": "News & Trends by Sber",
@@ -67,5 +67,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1782996881
+  "last_run": 1782997118
 }
