@@ -232,5 +232,29 @@
     "reaction": "🟢",
     "msg_id": "375",
     "timestamp": 1782997945
+  },
+  {
+    "text": "<b>Anthropic <a href=\"https://platform.claude.com/docs/en/agents-and-tools/tool-use/advisor-tool\">предложила</a> инструмент Advisor Tool для экономного использования модели Fable 5 в ИИ-агентах.</b>\n- Sonnet 5 выполняет рутинные задачи, а Fable 5 автоматически подключается для сложных решений — оркестрация происходит внутри платформы без внешнего оркестратора.\n- Качество ответов приближается к Fable, а стоимость и скорость — к уровню Sonnet.\n\n🔗 <a href=\"https://t.me/blockchainrf/13158\">публикация Все о блокчейн/мозге/space/WEB 3.0 в России и мире</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🟢",
+    "msg_id": "378",
+    "timestamp": 1782998136
+  },
+  {
+    "text": "<b>«Аэрофлот» <a href=\"https://ict.moscow/news/aeroflot-priobrel-u-yadro-servery-dlia-razvitiia-svoei-it-sistemy/\">купил</a> у Yadro 200 серверов для развития ИТ-инфраструктуры.</b> По оценке Softline, это может быть одна из крупнейших публично известных поставок такого рода в коммерческом сегменте транспортной отрасли.\n\n🔗 <a href=\"https://t.me/ict_moscow/8376\">публикация ICT.Moscow</a>\n\n#ит_сектор",
+    "reaction": "🟢",
+    "msg_id": "379",
+    "timestamp": 1782998136
+  },
+  {
+    "text": "",
+    "reaction": "🔴",
+    "msg_id": "380",
+    "timestamp": 1782998136
+  },
+  {
+    "text": "<b>Исследователи Университета Иннополис, СПбГЭТУ «ЛЭТИ» и Джадавпурского университета <a href=\"https://media.innopolis.university/news/ai-algorithm-for-emotion-recognition/\">создали</a> нейросеть для распознавания эмоций по сигналам ЭЭГ с точностью до 99,99%.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5226\">публикация База знаний AI</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🔴",
+    "msg_id": "381",
+    "timestamp": 1782998136
   }
 ]
