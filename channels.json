@@ -19,7 +19,7 @@
     },
     "vistehno": {
       "name": "Искусственный интеллект. Высокие технологии",
-      "last_seen": 5404
+      "last_seen": 5405
     },
     "ict_moscow": {
       "name": "ICT.Moscow",
@@ -39,7 +39,7 @@
     },
     "ict_moscow_analytics": {
       "name": "Мониторинг аналитики об IT",
-      "last_seen": 6580
+      "last_seen": 6581
     },
     "sbmarketing": {
       "name": "News & Trends by Sber",
@@ -66,6 +66,6 @@
       "last_seen": 3624
     }
   },
-  "mimo_alert_sent": false,
-  "last_run": 1782979411
+  "mimo_alert_sent": true,
+  "last_run": 1782980005
 }
