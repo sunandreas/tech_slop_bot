@@ -76,5 +76,59 @@
     "reaction": "🟢",
     "msg_id": "336",
     "timestamp": 1782996682
+  },
+  {
+    "text": "<b>Kleos <a href=\"https://t.me/+gjCl6I8rmR43MTM6\">внедрила</a> функцию «approval-as-a-feature» для ИИ-платежей, обеспечивая человеческий контроль.</b>\n\n🔗 <a href=\"https://t.me/disruptors_official/3624\">публикация Дизраптор</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "337",
+    "timestamp": 1782996868
+  },
+  {
+    "text": "<b>VK <a href=\"https://www.forbes.ru/tekhnologii/564003-kanal-discovery-vk-zapuskaet-sobstvennyj-nejropoisk\">внедрит</a> в продукты функцию Discovery AI для поиска и генерации ответов на базе собственной LLM.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5224\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🟡",
+    "msg_id": "338",
+    "timestamp": 1782996868
+  },
+  {
+    "text": "<b>«СберТех» <a href=\"https://sbertech.ru/news/sber-teh-predstavil-subd-dlya-sczenariev-iskusstvennogo-intellekta-v-korporativnoj-infrastrukture\">представил</a> СУБД Platform V Vector DB для применения в корпоративных ИИ-сценариях.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5224\">публикация База знаний AI</a>\n\n#ии_инфраструктура",
+    "reaction": "🔴",
+    "msg_id": "339",
+    "timestamp": 1782996868
+  },
+  {
+    "text": "<b>В «СберБизнесе» <a href=\"https://www.sberbank.com/ru/news-and-media/press-releases/article?newsID=5a8fc936-916d-4105-8525-34be1b968f32&blockID=7&regionID=50&lang=ru&type=NEWS\">заработал</a> ИИ-аналитик на основе модели GigaChat.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5224\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "340",
+    "timestamp": 1782996868
+  },
+  {
+    "text": "<b>В «Авито» <a href=\"https://www.vedomosti.ru/technologies/industries_and_markets/news/2026/07/01/1210145-testirovanie-ii-assistenta\">объявили</a> о масштабном тестировании ИИ-ассистента для продавцов «Ави Pro».</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5224\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "341",
+    "timestamp": 1782996868
+  },
+  {
+    "text": "<b>Корпорация МСП <a href=\"https://www.cnews.ru/news/line/2026-07-01_korporatsiya_msp_zapustila\">запустила</a> на Цифровой платформе МСП. РФ образовательный онлайн-курс для предпринимателей по ИИ.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5224\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "342",
+    "timestamp": 1782996868
+  },
+  {
+    "text": "<b>Ученые Института искусственного интеллекта AIRI <a href=\"https://www.ixbt.com/news/2026/07/01/420140-v-rossii-sozdali-neiroset-kotoraia-stroit-kartu-genov-po-posledovatelnosti-dnk.html\">разработали</a> модель GENATATOR для разметки генов по последовательности ДНК.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5224\">публикация База знаний AI</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🔴",
+    "msg_id": "343",
+    "timestamp": 1782996868
+  },
+  {
+    "text": "<b>Ученые ИСП РАН, МИАН, AIRI и «Сбера» <a href=\"https://www.sberbank.com/ru/news-and-media/press-releases/article?newsID=48de1cca-4820-4f08-97b0-12055f67921e&blockID=7&regionID=50&lang=ru&type=NEWS\">создали</a> ИИ-метод для выявления мошенничества и более точных рекомендаций.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5224\">публикация База знаний AI</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🔴",
+    "msg_id": "344",
+    "timestamp": 1782996868
+  },
+  {
+    "text": "<b>Исследователи Университета Иннополис, СПбГЭТУ «ЛЭТИ» и Джадавпурского университета <a href=\"https://tass.ru/nauka/27877505\">создали</a> гибридную нейросеть для распознавания эмоций.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5224\">публикация База знаний AI</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🔴",
+    "msg_id": "345",
+    "timestamp": 1782996868
   }
 ]
