@@ -346,5 +346,35 @@
     "reaction": "🟢",
     "msg_id": "415",
     "timestamp": 1783087942
+  },
+  {
+    "text": "",
+    "reaction": "🟢",
+    "msg_id": "418",
+    "timestamp": 1783088136
+  },
+  {
+    "text": "",
+    "reaction": "🟡",
+    "msg_id": "420",
+    "timestamp": 1783088136
+  },
+  {
+    "text": "<b>Генеральный директор Palantir Алекс Карп <a href=\"https://www.forbes.com/sites/tylerroush/2026/07/01/palantir-billionaire-alex-karp-calls-ai-industry-effing-insane-in-heated-interview/\">обвинил</a> OpenAI, Anthropic и Google в завышенных ценах, эксплуатации данных клиентов и угрозе национальной безопасности США.</b> OpenAI, Anthropic и Google продают API напрямую корпоративным и государственным клиентам, вытесняя Palantir с рынка.\n\n🔗 <a href=\"https://t.me/blockchainrf/13162\">публикация Все о блокчейн/мозге/space/WEB 3.0 в России и мире</a>\n\n#ии_рынок",
+    "reaction": "🟡",
+    "msg_id": "424",
+    "timestamp": 1783088136
+  },
+  {
+    "text": "<b>Cloud.ru <a href=\"https://cloud.ru/blog/cloud-ru-zapustil-evoclaw\">запустил</a> в коммерческую эксплуатацию облачный сервис EvoClaw для работы с OpenClaw и другими ИИ-агентами.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5231\">публикация База знаний AI</a>\n\n#ии_инфраструктура",
+    "reaction": "🟢",
+    "msg_id": "432",
+    "timestamp": 1783088136
+  },
+  {
+    "text": "<b>Государственный совет Китая <a href=\"https://www.bloomberg.com/news/articles/2026-06-29/china-pushes-all-school-levels-to-teach-ai-in-xi-s-tech-drive\">опубликовал</a> пятилетний план по интеграции ИИ на всех уровнях образования.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5231\">публикация База знаний AI</a>\n\n#ии_регулирование",
+    "reaction": "🟡",
+    "msg_id": "437",
+    "timestamp": 1783088136
   }
 ]
