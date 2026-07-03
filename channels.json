@@ -1,5 +1,5 @@
 {
-  "offset": 73857904,
+  "offset": 73857906,
   "channels": {
     "blockchainrf": {
       "name": "Все о блокчейн/мозге/space/WEB 3.0 в России и мире",
@@ -31,11 +31,11 @@
     },
     "icipr": {
       "name": "ЦИПР",
-      "last_seen": 9704
+      "last_seen": 9705
     },
     "tsingular": {
       "name": "Технозаметки Малышева",
-      "last_seen": 7781
+      "last_seen": 7785
     },
     "ict_moscow_analytics": {
       "name": "Мониторинг аналитики об IT",
@@ -67,5 +67,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1783088494
+  "last_run": 1783088718
 }
