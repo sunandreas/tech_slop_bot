@@ -19,7 +19,7 @@
     },
     "vistehno": {
       "name": "Искусственный интеллект. Высокие технологии",
-      "last_seen": 5409
+      "last_seen": 5411
     },
     "ict_moscow": {
       "name": "ICT.Moscow",
@@ -35,7 +35,7 @@
     },
     "tsingular": {
       "name": "Технозаметки Малышева",
-      "last_seen": 7780
+      "last_seen": 7781
     },
     "ict_moscow_analytics": {
       "name": "Мониторинг аналитики об IT",
@@ -67,5 +67,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1783084171
+  "last_run": 1783084433
 }
