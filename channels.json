@@ -66,6 +66,6 @@
       "last_seen": 3637
     }
   },
-  "mimo_alert_sent": false,
-  "last_run": 1783325370
+  "mimo_alert_sent": true,
+  "last_run": 1783325919
 }
