@@ -55,7 +55,7 @@
     },
     "ai_regulation": {
       "name": "HCAI // Регулирование ИИ",
-      "last_seen": 746
+      "last_seen": 747
     },
     "test394234234": {
       "name": "Test89674",
@@ -67,5 +67,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1783352559
+  "last_run": 1783352787
 }
