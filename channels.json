@@ -15,7 +15,7 @@
     },
     "alwebbci": {
       "name": "All about AI, Web 3.0, BCI",
-      "last_seen": 4341
+      "last_seen": 4342
     },
     "vistehno": {
       "name": "Искусственный интеллект. Высокие технологии",
@@ -35,7 +35,7 @@
     },
     "tsingular": {
       "name": "Технозаметки Малышева",
-      "last_seen": 7814
+      "last_seen": 7815
     },
     "ict_moscow_analytics": {
       "name": "Мониторинг аналитики об IT",
@@ -47,7 +47,7 @@
     },
     "volotovskayaelena": {
       "name": "Volotovskaya",
-      "last_seen": 3826
+      "last_seen": 3827
     },
     "ai_newz": {
       "name": "эйай ньюз",
@@ -67,5 +67,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1783596276
+  "last_run": 1783597437
 }
