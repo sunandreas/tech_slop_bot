@@ -27,7 +27,7 @@
     },
     "ict_moscow_ai": {
       "name": "База знаний AI",
-      "last_seen": 5253
+      "last_seen": 5254
     },
     "icipr": {
       "name": "ЦИПР",
@@ -66,6 +66,6 @@
       "last_seen": 3650
     }
   },
-  "mimo_alert_sent": false,
-  "last_run": 1783582055
+  "mimo_alert_sent": true,
+  "last_run": 1783582960
 }
