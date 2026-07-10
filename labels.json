@@ -568,5 +568,71 @@
     "reaction": "🟢",
     "msg_id": "677",
     "timestamp": 1783671148
+  },
+  {
+    "text": "<b>«Группа Астра» <a href=\"https://astra.ru/about/press-center/news/gruppa-astra-spuskaet-na-vodu-botsman-ai-iskusstvennyy-intellekt-teper-rabotaet-pod-flagom-korporati/\">выпустила</a> платформу «Боцман AI» для запуска языковых моделей ИИ внутри защищённого контура компании.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5243\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "678",
+    "timestamp": 1783671340
+  },
+  {
+    "text": "<b>Онлайн-ритейлер «Самокат» <a href=\"https://rb.ru/news/samokat-zapustil-dostavku-robokurerami-turbi-budut-razvozit-zakazy-v-neskolkih-rajonah-moskvy/\">запустил</a> в Москве доставку заказов робокурьерами.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5243\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🟢",
+    "msg_id": "679",
+    "timestamp": 1783671340
+  },
+  {
+    "text": "<b>Netvision <a href=\"https://tass.ru/ekonomika/27892069\">разработал</a> нейросеть для определения питбайков на дорогах.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5243\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "680",
+    "timestamp": 1783671340
+  },
+  {
+    "text": "<b>«СберТех» и «Норси-Транс» <a href=\"https://www.cnews.ru/news/line/2026-07-06_sberteh_i_norsi-trans\">сформировали</a> ПАК для реализации ИИ-проектов.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5243\">публикация База знаний AI</a>\n\n#ии_инфраструктура",
+    "reaction": "🔴",
+    "msg_id": "681",
+    "timestamp": 1783671340
+  },
+  {
+    "text": "<b>«Уралвагонзавод» (входит в «Ростех») <a href=\"https://rostec.ru/media/news/kontsern-uralvagonzavod-vpervye-pokazal-na-innoprome-avtonomnuyu-platformu-s-roborukoy/#start\">представил</a> мобильную платформу «Элли» с роборукой и навигацией на основе машинного зрения.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5243\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "682",
+    "timestamp": 1783671340
+  },
+  {
+    "text": "<b>В интерфейс «Логистической платформы ATI.SU» <a href=\"https://www.cnews.ru/news/line/2026-07-06_logisticheskaya_platforma\">интегрировали</a> ИИ-ассистента на базе GigaChat.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5243\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "683",
+    "timestamp": 1783671340
+  },
+  {
+    "text": "<b>Системный оператор ЕЭС <a href=\"https://www.tadviser.ru/a/955260\">проанализирует</a> применимость LLM для анализа аварий в электроэнергетике.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5243\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "684",
+    "timestamp": 1783671340
+  },
+  {
+    "text": "<b>Росстандарт <a href=\"https://protect.gost.ru/gost/details/7a97f3ed-1eb6-405b-a20a-16bd1adb9df9\">опубликовал</a> ГОСТ Р 72681-2026 для вариантов использования ИИ на автотранспорте и ГОСТ Р 72682-2026 с терминами для ИИ-систем управления транспортной инфраструктурой.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5243\">публикация База знаний AI</a>\n\n#ии_регулирование",
+    "reaction": "🔴",
+    "msg_id": "685",
+    "timestamp": 1783671340
+  },
+  {
+    "text": "<b>Исследователи MWS AI и Корейского университета технологий и образования <a href=\"https://www.cnews.ru/news/line/2026-07-06_mws_ai_vylozhila_universalnyj\">разработали</a> фильтр AVI для обучения и настройки LLM.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5243\">публикация База знаний AI</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🔴",
+    "msg_id": "686",
+    "timestamp": 1783671340
+  },
+  {
+    "text": "<b>МИРЭА и «Платформа Третье Мнение» <a href=\"https://www.cnews.ru/news/line/2026-07-06_student_mirea_nauchil_ii_nahodit\">создали</a> ИИ-систему для распознавания злокачественных образований печени по снимкам КТ.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5243\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "687",
+    "timestamp": 1783671340
+  },
+  {
+    "text": "<b>Anthropic <a href=\"https://investors.terawulf.com/news-events/press-releases/detail/142/terawulf-announces-anthropic-lease-at-justified-data-campus-and-sale-of-majority-interest-in-abernathy-joint-venture-to-fluidstack\">заключил</a> с TeraWulf 20-летний договор аренды дата-центра для ИИ мощностью 401 МВт в Кентукки к 2028 году.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5243\">публикация База знаний AI</a>\n\n#ии_инфраструктура",
+    "reaction": "🟢",
+    "msg_id": "688",
+    "timestamp": 1783671340
   }
 ]
