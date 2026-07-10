@@ -982,5 +982,41 @@
     "reaction": "🟢",
     "msg_id": "808",
     "timestamp": 1783673666
+  },
+  {
+    "text": "<b>«Росэл» («Ростех»): объём импорта робототехники в Россию за два года <a href=\"https://www.vedomosti.ru/technology/articles/2026/07/08/1211972-80-ispolzuemih-v-rossii-robotov-zarubezhnogo-proizvodstva\">вырос</a> на 81% в натуральном и на 55% в денежном выражении.</b> Доля российских решений увеличилась с 14% в 2023 г. до 26% в 2025 г.\n\n🔗 <a href=\"https://t.me/ict_moscow_analytics/6594\">публикация Мониторинг аналитики об IT</a>\n\n#ит_сектор",
+    "reaction": "🔴",
+    "msg_id": "810",
+    "timestamp": 1783673839
+  },
+  {
+    "text": "<b>Минпромторг России: Алтайский и Пермский край, Амурская и Нижегородская области и Ханты-Мансийский автономный округ – Югра <a href=\"https://www.vedomosti.ru/technology/articles/2026/07/08/1211961-minpromtorg-raspredelil-regioni-po-razvitiyu-bespilotnikov\">возглавили</a> рейтинг дронификации российских регионов.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_analytics/6594\">публикация Мониторинг аналитики об IT</a>\n\n#ит_сектор",
+    "reaction": "🔴",
+    "msg_id": "811",
+    "timestamp": 1783673839
+  },
+  {
+    "text": "<b>Минцифры России: на «Госуслугах» <a href=\"https://digital.gov.ru/news/bolee-100-tysyach-sertifikatov-it-kompetenczij-vydano-na-gosuslugah\">выдано</a> более 100 тыс. сертификатов ИТ-компетенций, 63% – ИТ-специалистам.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_analytics/6594\">публикация Мониторинг аналитики об IT</a>\n\n#ит_сектор",
+    "reaction": "🔴",
+    "msg_id": "812",
+    "timestamp": 1783673839
+  },
+  {
+    "text": "<b>«МТС Линк»: 87% российских компаний <a href=\"https://www.novostiitkanala.ru/news/detail.php?ID=196932\">применяют</a> ИИ в корпоративном обучении.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_analytics/6594\">публикация Мониторинг аналитики об IT</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "813",
+    "timestamp": 1783673839
+  },
+  {
+    "text": "<b>Digital Developer: совокупная выручка PropTech-вендоров в 2025 г. <a href=\"https://www.novostiitkanala.ru/news/detail.php?ID=196912\">увеличилась</a> на 5,5% по сравнению с предыдущим годом.</b> Наиболее высокий рост зафиксирован в сегменте цифровых решений для строительства – на 19,4%.\n\n🔗 <a href=\"https://t.me/ict_moscow_analytics/6594\">публикация Мониторинг аналитики об IT</a>\n\n#ит_сектор",
+    "reaction": "🔴",
+    "msg_id": "814",
+    "timestamp": 1783673839
+  },
+  {
+    "text": "",
+    "reaction": "🟢",
+    "msg_id": "824",
+    "timestamp": 1783673839
   }
 ]
