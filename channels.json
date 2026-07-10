@@ -1,5 +1,5 @@
 {
-  "offset": 73858006,
+  "offset": 73858022,
   "channels": {
     "blockchainrf": {
       "name": "Все о блокчейн/мозге/space/WEB 3.0 в России и мире",
@@ -7,7 +7,7 @@
     },
     "redmadnews": {
       "name": "red_mad_robot",
-      "last_seen": 5332
+      "last_seen": 5333
     },
     "abulaphia": {
       "name": "Innovation & Research",
@@ -67,5 +67,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1783679976
+  "last_run": 1783680191
 }
