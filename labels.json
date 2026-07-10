@@ -1162,5 +1162,35 @@
     "reaction": "🔴",
     "msg_id": "870",
     "timestamp": 1783680144
+  },
+  {
+    "text": "<b>Московская биржа <a href=\"https://www.forbes.ru/investicii/564425-mosbirza-nacnet-vyavlat-manipulirovanie-rynkom-s-pomos-u-ii\">начала</a> внедрение инструментов на базе ИИ для выявления операций с признаками манипулирования рынком.</b>\n- ИИ будет анализировать сотни тысяч сделок и выявлять признаки скоординированных действий участников рынка.\n- По оценке биржи, в перспективе одного–двух лет система позволит высвободить ресурсы экспертов для более глубокого анализа сложных случаев.\n\n🔗 <a href=\"https://t.me/icipr/9721\">публикация ЦИПР</a>\n\n#ии_внедрение",
+    "reaction": "🟢",
+    "msg_id": "873",
+    "timestamp": 1783680339
+  },
+  {
+    "text": "<b>В ОЭЗ «Технополис Москва» <a href=\"https://www.interfax-russia.ru/moscow/news/sobyanin-obyavil-o-zapuske-pervoy-v-rossii-robotizirovannoy-linii-zhk-displeev\">запустили</a> производственную линию полного цикла по выпуску оптических трансиверов для дата-центров, банков и сетей связи.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow/8392\">публикация ICT.Moscow</a>\n\n#ит_сектор",
+    "reaction": "🔴",
+    "msg_id": "874",
+    "timestamp": 1783680339
+  },
+  {
+    "text": "",
+    "reaction": "🔴",
+    "msg_id": "880",
+    "timestamp": 1783680339
+  },
+  {
+    "text": "",
+    "reaction": "🔴",
+    "msg_id": "881",
+    "timestamp": 1783680339
+  },
+  {
+    "text": "<b>Маркетплейсы <a href=\"https://briocap.com/bank-kotoryi-vy-ne-zamecaete\">создают</a> собственные платёжные движки и перехватывают функции традиционных банков.</b>\n- У Ozon Банка около 60% операций приходится на транзакции вне торговой площадки Ozon.\n- Аналогичный тренд наблюдается глобально — в Китае (Alibaba), Юго-Восточной Азии (Shopee, Sea Ltd) и Латинской Америке (Mercado Libre).\n\n🔗 <a href=\"https://t.me/disruptors_official/3649\">публикация Дизраптор</a>\n\n#платформы_экосистемы",
+    "reaction": "🔴",
+    "msg_id": "882",
+    "timestamp": 1783680339
   }
 ]
