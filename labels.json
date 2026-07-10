@@ -1606,5 +1606,59 @@
     "reaction": "🔴",
     "msg_id": "1009",
     "timestamp": 1783685183
+  },
+  {
+    "text": "<b>«Сколково» и «Финго» <a href=\"https://sk.ru/news/fond-skolkovo-i-gruppa-fingo-razrabatyvayut-ii-reshenie-dlya-povysheniya-effektivnosti-promyshlennoj-gazoochistki/\">разработают</a> ИИ-платформу для повышения эффективности промышленной газоочистки.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5261\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "1010",
+    "timestamp": 1783685361
+  },
+  {
+    "text": "<b>«Газпром нефть» <a href=\"https://tass.ru/ekonomika/27903073\">работает</a> над созданием ИИ-системы с применением цифровых двойников для управления разработкой месторождений.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5261\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "1011",
+    "timestamp": 1783685361
+  },
+  {
+    "text": "<b>НИУ ВШЭ и «Т-Технологии» <a href=\"https://www.hse.ru/news/science/1177606513.html\">создали</a> метод G-Star+ для более быстрого и качественного исправления ошибок при ИИ-генерации текста и кода.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5261\">публикация База знаний AI</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🟡",
+    "msg_id": "1012",
+    "timestamp": 1783685361
+  },
+  {
+    "text": "<b>В федеральном кардиоцентре Красноярска <a href=\"https://krascor.ru/press-center/news/novosti-meditsinskogo-tsentra/v-federalnom-kardiotsentre-krasnoyarska-razrabotali-i-zapatentovali-metodiku-pozvolyayushchuyu-predo/\">разработали</a> и запатентовали ПО LUCH-D на базе ML для прогнозирования вероятности развития дыхательной недостаточности у детей.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5261\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "1013",
+    "timestamp": 1783685361
+  },
+  {
+    "text": "<b>Apple <a href=\"https://3dnews.ru/1144867/apple-zainteresovalas-tehnologiey-prismml-dlya-zapuska-bolshih-iimodeley-pryamo-na-smartfone\">ведёт</a> переговоры со стартапом PrismML о возможном использовании его технологий для запуска LLM на смартфонах.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5261\">публикация База знаний AI</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🔴",
+    "msg_id": "1016",
+    "timestamp": 1783685361
+  },
+  {
+    "text": "<b>В Шанхае (Китай) <a href=\"https://bigasia.ru/v-shanhae-zapustili-pervuyu-laboratoriyu-bez-uchenyh#\">открылась</a> лаборатория, способная вести научные исследования с помощью ИИ без участия человека.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5261\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "1018",
+    "timestamp": 1783685361
+  },
+  {
+    "text": "<b>Китайская Robbyant <a href=\"https://startpack.ru/article/20260708-ant-group\">представила</a> семейство моделей LingBot-Vision для решения задач воплощённого интеллекта.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5261\">публикация База знаний AI</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🔴",
+    "msg_id": "1019",
+    "timestamp": 1783685361
+  },
+  {
+    "text": "<b>«ЕвроХим»: 54% участников опроса в агропромышленном комплексе уже <a href=\"https://www.cnews.ru/news/line/2026-07-09_issledovanie_evrohima\">используют</a> ИИ для бытовых задач.</b> Чаще всего нейросети помогают аграриям составлять схемы минерального питания растений, объяснять сложные термины и определять болезни сельскохозяйственных культур.\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5261\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "1020",
+    "timestamp": 1783685361
+  },
+  {
+    "text": "<b>На портале «Цифровой регион» <a href=\"https://maximum.mosreg.ru/sobytiya/novosti-ministerstva/portal-cifrovoi-region-popolnilsia-novymi-ii-reseniiami\">размещено</a> 464 решения с применением ИИ.</b> За июнь каталог расширился на 16 практик из 13 регионов.\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5261\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "1021",
+    "timestamp": 1783685361
   }
 ]
