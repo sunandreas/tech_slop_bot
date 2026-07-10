@@ -1,5 +1,5 @@
 {
-  "offset": 73858067,
+  "offset": 73858084,
   "channels": {
     "blockchainrf": {
       "name": "Все о блокчейн/мозге/space/WEB 3.0 в России и мире",
@@ -15,7 +15,7 @@
     },
     "alwebbci": {
       "name": "All about AI, Web 3.0, BCI",
-      "last_seen": 4345
+      "last_seen": 4346
     },
     "vistehno": {
       "name": "Искусственный интеллект. Высокие технологии",
@@ -67,5 +67,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1783684651
+  "last_run": 1783684905
 }
