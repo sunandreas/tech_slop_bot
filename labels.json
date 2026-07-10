@@ -634,5 +634,41 @@
     "reaction": "🟢",
     "msg_id": "688",
     "timestamp": 1783671340
+  },
+  {
+    "text": "<b>Reddit <a href=\"https://redditinc.com/news/how-were-keeping-reddit-real-and-safe-in-the-ai-era\">задействовал</a> LLM-инструменты для борьбы со спамом — его количество сократилось на 20%.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5243\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "689",
+    "timestamp": 1783671510
+  },
+  {
+    "text": "<b>Япония планирует <a href=\"https://www.tomsguide.com/ai/japan-plans-to-deploy-10-million-robots-by-2040-in-push-for-physical-ai-healthcare-food-manufacturing-and-more\">внедрить</a> к 2040 году 10 млн человекоподобных роботов в 18 отраслях.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5243\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "690",
+    "timestamp": 1783671510
+  },
+  {
+    "text": "<b>ByteDance и Alibaba <a href=\"http://bloomberg.com/news/articles/2026-07-06/bytedance-alibaba-pull-ai-companions-as-beijing-tightens-rules\">отключают</a> функции создания ИИ-компаньонов из-за вступления в силу новых требований в Китае.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5243\">публикация База знаний AI</a>\n\n#ии_регулирование",
+    "reaction": "🟢",
+    "msg_id": "691",
+    "timestamp": 1783671510
+  },
+  {
+    "text": "<b>Pudu Robotics в 2027 году <a href=\"https://interestingengineering.com/ai-robotics/world-first-hotel-robot-china-pudu\">откроет</a> в Китае отель с полным роботизированным обслуживанием.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5243\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "692",
+    "timestamp": 1783671510
+  },
+  {
+    "text": "<b>К 2027 году 58% компаний планируют полностью <a href=\"https://www.novostiitkanala.ru/news/detail.php?ID=196901\">передать</a> обработку входящих звонков голосовым роботам с ИИ — опрос «Гравител».</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5243\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "693",
+    "timestamp": 1783671510
+  },
+  {
+    "text": "<b>28% промышленных предприятий в мире в 2025 году <a href=\"https://www.kaspersky.ru/about/press-releases/28-promyshlennyh-kompanij-v-mire-v-2025-godu-podvergalis-kiberatakam-s-primeneniem-ii\">сталкивались</a> с кибератаками с применением ИИ — «Лаборатория Касперского».</b> 36% промышленных предприятий включают атаки с ИИ в топ-5 наиболее значимых угроз.\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5243\">публикация База знаний AI</a>\n\n#кибербез",
+    "reaction": "🔴",
+    "msg_id": "694",
+    "timestamp": 1783671510
   }
 ]
