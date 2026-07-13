@@ -11,7 +11,7 @@
     },
     "abulaphia": {
       "name": "Innovation & Research",
-      "last_seen": 6430
+      "last_seen": 6431
     },
     "alwebbci": {
       "name": "All about AI, Web 3.0, BCI",
@@ -66,6 +66,6 @@
       "last_seen": 3661
     }
   },
-  "mimo_alert_sent": true,
-  "last_run": 1783917489
+  "mimo_alert_sent": false,
+  "last_run": 1783917639
 }
