@@ -2392,5 +2392,47 @@
     "reaction": "🟡",
     "msg_id": "1264",
     "timestamp": 1784031339
+  },
+  {
+    "text": "",
+    "reaction": "🟡",
+    "msg_id": "1265",
+    "timestamp": 1784031505
+  },
+  {
+    "text": "<b>Нобелевские лауреаты и лидеры ИИ-индустрии <a href=\"https://www.wemustactnow.ai/\">призывают</a> к немедленным реформам экономики из-за влияния ИИ.</b>\n- В число подписавших обращение вошли Джефф Дин (Google), Йошуа Бенджио, представители Anthropic и OpenAI, Эрик Шмидт и другие.\n- Обращение требует глубокого изучения экономических последствий ИИ и разработки мер поддержки, минимизирующих вред для рынка труда.\n\n🔗 <a href=\"https://t.me/blockchainrf/13194\">публикация Все о блокчейн/мозге/space/WEB 3.0 в России и мире</a>\n\n#ии_регулирование",
+    "reaction": "🟢",
+    "msg_id": "1266",
+    "timestamp": 1784031505
+  },
+  {
+    "text": "",
+    "reaction": "🔴",
+    "msg_id": "1267",
+    "timestamp": 1784031505
+  },
+  {
+    "text": "<b>Google опубликовала технический отчёт по модели <a href=\"https://arxiv.org/abs/2607.02770\">Gemma 4</a>.</b>\n- Соотношение local-to-global attention 5:1 в сочетании с pp-RoPE позволило уменьшить объём KV-кэша.\n- В отчёте описаны подходы на основе спекулятивного декодирования и Multi-Token Prediction для ускорения инференса.\n\n🔗 <a href=\"https://t.me/alwebbci/4350\">публикация All about AI, Web 3.0, BCI</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🔴",
+    "msg_id": "1268",
+    "timestamp": 1784031505
+  },
+  {
+    "text": "<b>«Руссофт»: свыше 20% ИТ-компаний в 2026 г. могут <a href=\"https://www.vedomosti.ru/technology/articles/2026/07/13/1213117-pyataya-chast\">снизить</a> годовую выручку, но совокупный показатель увеличится на 17%, до 3,3 трлн руб.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow/8400\">публикация ICT.Moscow</a>\n\n#ит_сектор",
+    "reaction": "🔴",
+    "msg_id": "1272",
+    "timestamp": 1784031505
+  },
+  {
+    "text": "<b>iKS-Consulting: объём рынка аутсорсинговых контакт-центров в 2025 г. <a href=\"https://ict.moscow/analytics/v-autsorsingovykh-kontakt-tsentrakh-v-2025-godu-obem-golosovogo-trafika-snizilsia-na-12-1-chislo-tekstovykh-soobshchenii-vyroslo-na-37-5/\">увеличился</a> на 0,2%, до 31 млрд руб.</b>\n- Объём голосового трафика сократился на 12,1%, до 2,3 млн.\n- Число текстовых сообщений выросло на 37,5%, до 987,8 тыс.\n\n🔗 <a href=\"https://t.me/ict_moscow/8400\">публикация ICT.Moscow</a>\n\n#ит_сектор",
+    "reaction": "🔴",
+    "msg_id": "1273",
+    "timestamp": 1784031505
+  },
+  {
+    "text": "<b>Координационный центр доменов .RU/.РФ: по данным на апрель 2026 г. в зоне .РФ <a href=\"https://ict.moscow/analytics/podderzhka-internatsionalizirovannykh-adresov-elektronnoi-pochty-pochtovymi-serverami-v-domenakh-ru-i-rf/\">выявлено</a> 40,3 тыс. доменов с MX-записями, в .RU — 486,5 тыс.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow/8400\">публикация ICT.Moscow</a>\n\n#ит_сектор",
+    "reaction": "🔴",
+    "msg_id": "1274",
+    "timestamp": 1784031505
   }
 ]
