@@ -3,7 +3,7 @@
   "channels": {
     "blockchainrf": {
       "name": "Все о блокчейн/мозге/space/WEB 3.0 в России и мире",
-      "last_seen": 13195
+      "last_seen": 13198
     },
     "redmadnews": {
       "name": "red_mad_robot",
@@ -11,43 +11,43 @@
     },
     "abulaphia": {
       "name": "Innovation & Research",
-      "last_seen": 6431
+      "last_seen": 6433
     },
     "alwebbci": {
       "name": "All about AI, Web 3.0, BCI",
-      "last_seen": 4352
+      "last_seen": 4353
     },
     "vistehno": {
       "name": "Искусственный интеллект. Высокие технологии",
-      "last_seen": 5436
+      "last_seen": 5438
     },
     "ict_moscow": {
       "name": "ICT.Moscow",
-      "last_seen": 8400
+      "last_seen": 8402
     },
     "ict_moscow_ai": {
       "name": "База знаний AI",
-      "last_seen": 5272
+      "last_seen": 5276
     },
     "icipr": {
       "name": "ЦИПР",
-      "last_seen": 9742
+      "last_seen": 9743
     },
     "tsingular": {
       "name": "Технозаметки Малышева",
-      "last_seen": 7864
+      "last_seen": 7866
     },
     "ict_moscow_analytics": {
       "name": "Мониторинг аналитики об IT",
-      "last_seen": 6606
+      "last_seen": 6610
     },
     "sbmarketing": {
       "name": "News & Trends by Sber",
-      "last_seen": 9731
+      "last_seen": 9737
     },
     "volotovskayaelena": {
       "name": "Volotovskaya",
-      "last_seen": 3829
+      "last_seen": 3830
     },
     "ai_newz": {
       "name": "эйай ньюз",
@@ -55,7 +55,7 @@
     },
     "ai_regulation": {
       "name": "HCAI // Регулирование ИИ",
-      "last_seen": 747
+      "last_seen": 749
     },
     "test394234234": {
       "name": "Test89674",
@@ -63,9 +63,9 @@
     },
     "disruptors_official": {
       "name": "Дизраптор",
-      "last_seen": 3666
+      "last_seen": 3669
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1784031863
+  "last_run": 1784033009
 }
