@@ -2260,5 +2260,113 @@
     "reaction": "🟡",
     "msg_id": "1215",
     "timestamp": 1784030963
+  },
+  {
+    "text": "<b>МТС совместно с Российской государственной библиотекой <a href=\"https://www.cnews.ru/news/line/2026-07-09_mws_ai_stala_partnerom_rossijskoj\">разработает</a> AI-платформу для автоматизации каталогизации, семантического поиска по фондам и аналитики текстов.</b>\n\n🔗 <a href=\"https://t.me/sbmarketing/9730\">публикация News & Trends by Sber</a>\n\n#ии_внедрение",
+    "reaction": "🟡",
+    "msg_id": "1216",
+    "timestamp": 1784031147
+  },
+  {
+    "text": "<b>МТС <a href=\"https://www.cnews.ru/news/line/2026-07-06_mws_ai_vylozhila_universalnyj\">опубликовал</a> в открытом доступе фильтр AVI для настройки ограничений безопасности LLM с помощью естественного языка без переобучения.</b>\n\n🔗 <a href=\"https://t.me/sbmarketing/9730\">публикация News & Trends by Sber</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🔴",
+    "msg_id": "1217",
+    "timestamp": 1784031147
+  },
+  {
+    "text": "<b>МТС Банк <a href=\"https://www.mtsbank.ru/o-banke/novosti/detail/1151407/\">запустил</a> переводы денег прямо в чате с пользователем в Max.</b>\n\n🔗 <a href=\"https://t.me/sbmarketing/9730\">публикация News & Trends by Sber</a>\n\n#платформы_экосистемы",
+    "reaction": "🔴",
+    "msg_id": "1218",
+    "timestamp": 1784031147
+  },
+  {
+    "text": "<b>ВТБ <a href=\"https://bosfera.ru/press-release/vtb-zapustil-servis-vtoroy-ruki-dlya-podrostkov\">запустил</a> в приложении сервис, позволяющий родителям одобрять финансовые операции подростков 14–18 лет свыше установленного лимита.</b>\n\n🔗 <a href=\"https://t.me/sbmarketing/9730\">публикация News & Trends by Sber</a>\n\n#финтех",
+    "reaction": "🔴",
+    "msg_id": "1219",
+    "timestamp": 1784031147
+  },
+  {
+    "text": "<b>Т-Банк <a href=\"https://www.tbank.ru/about/news/10072026-researchers-from-t-technologies-research-lab-developed-unified-approach-to-evaluating-methods-for-tuning-llms/\">разработал</a> единый подход для сравнения методов дообучения LLM, позволяющий точнее оценивать влияние факторов на качество модели.</b>\n\n🔗 <a href=\"https://t.me/sbmarketing/9730\">публикация News & Trends by Sber</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🔴",
+    "msg_id": "1220",
+    "timestamp": 1784031147
+  },
+  {
+    "text": "<b>Т-Банк <a href=\"https://bosfera.ru/press-release/t-strahovanie-zapustilo-strahovanie-chastnyh-domov-dlya-vseh-klientov\">сделал</a> страхование частных домов и прилегающих построек доступным для всех категорий клиентов.</b>\n\n🔗 <a href=\"https://t.me/sbmarketing/9730\">публикация News & Trends by Sber</a>\n\n#платформы_экосистемы",
+    "reaction": "🔴",
+    "msg_id": "1221",
+    "timestamp": 1784031147
+  },
+  {
+    "text": "<b>Т-Банк <a href=\"https://www.tbank.ru/about/news/06072026-t-bank-has-launched-service-providing-up-to-date-information-on-gasoline-availability-20000-gas-stations-across-russia/\">запустил</a> карту отслеживания наличия топлива на 20 тыс. АЗС по всей России на основе анализа транзакционных данных.</b>\n\n🔗 <a href=\"https://t.me/sbmarketing/9730\">публикация News & Trends by Sber</a>\n\n#финтех",
+    "reaction": "🔴",
+    "msg_id": "1222",
+    "timestamp": 1784031147
+  },
+  {
+    "text": "<b>РСХБ <a href=\"https://www.rshb.ru/news/07072026-000002\">добавил</a> в платформу «Свое Фермерство» цифровую базу знаний «Агровики» с отраслевыми справочниками и практическими материалами.</b>\n\n🔗 <a href=\"https://t.me/sbmarketing/9730\">публикация News & Trends by Sber</a>\n\n#платформы_экосистемы",
+    "reaction": "🔴",
+    "msg_id": "1224",
+    "timestamp": 1784031147
+  },
+  {
+    "text": "<b>РСХБ <a href=\"https://www.rshb.ru/news/03072026-000001\">внедрил</a> в программу лояльности формат «Тематический кешбэк» с категориями, сгруппированными в пакеты по интересам клиентов.</b>\n\n🔗 <a href=\"https://t.me/sbmarketing/9730\">публикация News & Trends by Sber</a>\n\n#финтех",
+    "reaction": "🔴",
+    "msg_id": "1225",
+    "timestamp": 1784031147
+  },
+  {
+    "text": "<b>РСХБ <a href=\"https://www.rshb.ru/news/09072026-000001\">запустил</a> в приложении сервис «Дом» для централизованного сбора и оплаты счетов ЖКХ по всем объектам недвижимости клиента.</b>\n\n🔗 <a href=\"https://t.me/sbmarketing/9730\">публикация News & Trends by Sber</a>\n\n#платформы_экосистемы",
+    "reaction": "🔴",
+    "msg_id": "1226",
+    "timestamp": 1784031147
+  },
+  {
+    "text": "<b>ДОМ.РФ <a href=\"https://domrfbank.ru/press/construction-and-housing/bank-dom-rf-zapustil-develop-tury-dlya-obmena-luchshimi-praktikami-zhilishchnogo-stroitelstva/\">организовал</a> профессиональные «девелоп-туры» для обмена опытом между застройщиками на реальных объектах жилищного строительства.</b>\n\n🔗 <a href=\"https://t.me/sbmarketing/9730\">публикация News & Trends by Sber</a>\n\n#другое",
+    "reaction": "🔴",
+    "msg_id": "1227",
+    "timestamp": 1784031147
+  },
+  {
+    "text": "<b>X5 <a href=\"https://new-retail.ru/novosti/retail/perekryestok_testiruet_laktebar_stantsiyu_dlya_kastomizirovannykh_napitkov/\">запустил</a> в московском «Перекрёстке» пилотный проект станции «Лактебар» для самостоятельного приготовления кастомизированных напитков.</b>\n\n🔗 <a href=\"https://t.me/sbmarketing/9730\">публикация News & Trends by Sber</a>\n\n#ит_сектор",
+    "reaction": "🔴",
+    "msg_id": "1228",
+    "timestamp": 1784031147
+  },
+  {
+    "text": "<b>Газпром-Медиа <a href=\"https://www.cnews.ru/news/line/2026-07-08_rutube_dal_reklamodatelyam_novye\">предложил</a> рекламодателям Rutube инструменты post-view-аналитики блогерских интеграций и кросс-девайс атрибуции.</b>\n\n🔗 <a href=\"https://t.me/sbmarketing/9730\">публикация News & Trends by Sber</a>\n\n#ит_сектор",
+    "reaction": "🔴",
+    "msg_id": "1229",
+    "timestamp": 1784031147
+  },
+  {
+    "text": "<b>Основатель Zhipu Тан Цзе <a href=\"https://wallstreetcn.com/articles/3776707\">опубликовал</a> дорожную карту компании на ближайшие 2 г. с четырьмя приоритетами в гонке за AGI.</b>\n- Приоритеты: модели для задач на недели и месяцы, полностью автономные компании без людей (NPC), саморазвивающийся ИИ и встроенная безопасность.\n- За полгода капитализация Zhipu выросла в 10 раз по сравнению с IPO, в июне компания обогнала по этому показателю Baidu почти втрое.\n\n🔗 <a href=\"https://t.me/blockchainrf/13192\">публикация Все о блокчейн/мозге/space/WEB 3.0 в России и мире</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🟡",
+    "msg_id": "1232",
+    "timestamp": 1784031147
+  },
+  {
+    "text": "<b>ДИТ Москвы <a href=\"https://ict.moscow/news/moskva-predstavila-v-kitae-tsifrovoi-dvoinik-goroda-i-servisy-mos-ru/\">представила</a> на конференции GDEC в Пекине цифровой двойник города и сервисы mos.ru.</b>\n- Делегация обсудила с властями Пекина перспективы сотрудничества в области цифровизации городского управления и применения ИИ.\n- Также были продемонстрированы платформы «Активный гражданин», «Наш город» и «Электронный дом».\n\n🔗 <a href=\"https://t.me/ict_moscow/8399\">публикация ICT.Moscow</a>\n\n#ит_сектор",
+    "reaction": "🟡",
+    "msg_id": "1239",
+    "timestamp": 1784031147
+  },
+  {
+    "text": "<b>General Intuition и Kyutai <a href=\"https://mira-wm.com/\">представили</a> MIRA — многопользовательскую игровую модель мира.</b>\n- Модель обучена на 10 тыс. часов данных от публичных ботов и работает в реальном времени при 20 fps.\n- Проект создан при сотрудничестве с Epic Games.\n\n🔗 <a href=\"https://t.me/alwebbci/4348\">публикация All about AI, Web 3.0, BCI</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🔴",
+    "msg_id": "1240",
+    "timestamp": 1784031147
+  },
+  {
+    "text": "<b>15–17 июля пройдёт конференция «Клуба 4CIO» <a href=\"https://ict.moscow/event/okit-2026/\">ОКИТ 2026</a> с выставкой промышленных ИИ-инструментов.</b>\n- Участники обсудят масштабирование ИИ в ИТ-системах энергокомпаний.\n- Формат — офлайн.\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5270\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "1241",
+    "timestamp": 1784031147
+  },
+  {
+    "text": "",
+    "reaction": "🟡",
+    "msg_id": "1247",
+    "timestamp": 1784031147
   }
 ]
