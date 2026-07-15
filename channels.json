@@ -11,7 +11,7 @@
     },
     "abulaphia": {
       "name": "Innovation & Research",
-      "last_seen": 6434
+      "last_seen": 6435
     },
     "alwebbci": {
       "name": "All about AI, Web 3.0, BCI",
@@ -19,7 +19,7 @@
     },
     "vistehno": {
       "name": "Искусственный интеллект. Высокие технологии",
-      "last_seen": 5442
+      "last_seen": 5443
     },
     "ict_moscow": {
       "name": "ICT.Moscow",
@@ -67,5 +67,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1784129615
+  "last_run": 1784129870
 }
