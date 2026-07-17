@@ -3202,5 +3202,17 @@
     "reaction": "🟢",
     "msg_id": "1794",
     "timestamp": 1784296868
+  },
+  {
+    "text": "<b>«Корус Консалтинг» и Pyrus <a href=\"https://ict.moscow/news/korus-konsalting-i-pyrus-nachnut-predlagat-biznesu-platformu-low-code-dlia-avtomatizatsii-protsessov/\">начнут</a> предлагать бизнесу платформу Low-Code для автоматизации операционных процессов.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow/8414\">публикация ICT.Moscow</a>\n\n#ит_сектор",
+    "reaction": "🔴",
+    "msg_id": "1797",
+    "timestamp": 1784300475
+  },
+  {
+    "text": "<b>«Т-Технологии» <a href=\"https://www.tbank.ru/about/news/17072026-t-technologies-introduced-open-model-t-search-for-multi-step-search-for-business/\">представили</a> открытую модель T-Search для агентного поиска по корпоративной документации.</b>\n- Модель на базе Qwen3.6-35B-A3B содержит 35 млрд параметров, из которых активны только 3 млрд, что позволяет разворачивать её на 1 GPU NVIDIA H100 вместо 16.\n- Архитектура поддерживает параллельный запуск нескольких поисковых агентов, повышая качество поиска до 15%.\n- T-Search уже применяется в клиентском сервисе, RAG-платформе, ИИ-ассистентах сотрудников и поисковых сервисах «Т-Технологий» для B2B.\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5294\">публикация База знаний AI</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🟢",
+    "msg_id": "1795",
+    "timestamp": 1784300475
   }
 ]
