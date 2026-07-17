@@ -2746,5 +2746,89 @@
     "reaction": "🟡",
     "msg_id": "1648",
     "timestamp": 1784291242
+  },
+  {
+    "text": "<b>ВНИИСБ и Московский центр перспективных технологий <a href=\"https://tass.ru/nauka/27921075\">разработали</a> CV-систему для подсчёта и оценки качества семян на срезанных корзинках подсолнечника.</b>\n- Нейросеть обучена на датасете из более 1 тыс. фотографий корзинок, содержащих 260 тыс. семян, точность составила 88%.\n- Обработка одного изображения занимает 15–30 секунд вместо примерно часа у человека.\n- Размеченный датасет выложен в открытый доступ, создан публичный Telegram-бот, планируется адаптация модели для работы с беспилотниками в полевых условиях.\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5284\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "1649",
+    "timestamp": 1784291458
+  },
+  {
+    "text": "<b>Исследователи Курчатовского института и ВНИИСИБ в ноябре 2025 г. <a href=\"https://t.me/ict_moscow_ai/4639\">представили</a> ИИ-систему диагностики болезней у растений.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5284\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "1650",
+    "timestamp": 1784291458
+  },
+  {
+    "text": "",
+    "reaction": "🔴",
+    "msg_id": "1651",
+    "timestamp": 1784291458
+  },
+  {
+    "text": "",
+    "reaction": "🔴",
+    "msg_id": "1652",
+    "timestamp": 1784291458
+  },
+  {
+    "text": "",
+    "reaction": "🟢",
+    "msg_id": "1653",
+    "timestamp": 1784291458
+  },
+  {
+    "text": "",
+    "reaction": "🔴",
+    "msg_id": "1654",
+    "timestamp": 1784291458
+  },
+  {
+    "text": "<b>NtechLab разработала систему видеоаналитики на основе ИИ для российских вузов, которая распознаёт людей из розыска и мониторит посещаемость занятий.</b>\n\n🔗 <a href=\"https://t.me/blockchainrf/13208\">публикация Все о блокчейн/мозге/space/WEB 3.0 в России и мире</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "1655",
+    "timestamp": 1784291458
+  },
+  {
+    "text": "<b>«Сбер» <a href=\"https://www.sberbank.ru/ru/sberpress/tekhnologii/article?newsID=1af68a02-64af-4c5e-859b-2a58b1e19495&blockID=69b149cd-6db4-45aa-ade1-b6920d771b11&regionID=77&lang=ru&type=NEWS\">начал внедрять</a> мультиагентное приложение GigaCode Desktop для управления жизненным циклом разработки.</b>\n- Приложение представляет собой экосистему агентов, которые ищут информацию, анализируют документы, формируют отчёты и согласуют действия между собой.\n- Система внедрена в ключевых подразделениях «Сбера», компания планирует вывод продукта на внешний рынок.\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5285\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "1656",
+    "timestamp": 1784291458
+  },
+  {
+    "text": "<b>«Лаборатория Касперского» <a href=\"https://ict.moscow/news/laboratoriia-kasperskogo-vyvela-na-rynok-kaspersky-vulnerability-management-dlia-poiska-i-upravleniia-uiazvimostiami/\">запустила</a> в России решение Kaspersky Vulnerability Management для поиска и управления уязвимостями.</b>\n- Решение приоритизирует уязвимые места с учётом реальных рисков и подходит для организаций с не менее чем десятью устройствами.\n- Kaspersky Vulnerability Management готовят к сертификации ФСТЭК России и включению в реестр отечественного ПО Минцифры России.\n\n🔗 <a href=\"https://t.me/ict_moscow/8410\">публикация ICT.Moscow</a>\n\n#кибербез",
+    "reaction": "🔴",
+    "msg_id": "1657",
+    "timestamp": 1784291458
+  },
+  {
+    "text": "<b>«Лаборатория Касперского» в июле 2026 г. <a href=\"https://ict.moscow/news/laboratoriia-kasperskogo-predstavila-versiiu-kaspersky-security-dlia-serverov-s-funktsiei-obnaruzheniia-fishingovykh-pisem-sozdannykh-ii/\">представила</a> версию Kaspersky Security для серверов с функцией обнаружения фишинговых писем, созданных ИИ.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow/8410\">публикация ICT.Moscow</a>\n\n#кибербез",
+    "reaction": "🔴",
+    "msg_id": "1658",
+    "timestamp": 1784291458
+  },
+  {
+    "text": "<b>ИИ позволяет проводить массовый дьюдил всех компаний страны и автоматически генерировать лиды по его результатам.</b>\n\n🔗 <a href=\"https://t.me/tsingular/7879\">публикация Технозаметки Малышева</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "1659",
+    "timestamp": 1784291458
+  },
+  {
+    "text": "<b>MWS AI <a href=\"https://mts.ai/tehnologii/mws-ai-vypustila-ii-model-cotype-pro-3-dlya-resheniya-mnogoshagovyh-agentskih-zadach/\">выпустила</a> языковые модели Cotype Pro 3 и Cotype Light 3 для корпоративных ИИ-агентов.</b>\n- Cotype Pro 3 имеет 27 млрд параметров, Cotype Light 3 — 9 млрд, контекстное окно обеих моделей — 262 тыс. токенов.\n- На бенчмарке из 178 бизнес-сценариев Cotype Pro 3 показал 92,2% успешных задач и 79,1% воспроизводимости, Cotype Light 3 — 88,6% и 73,9%.\n- Модели генерируют 99,79% русского текста без языкового дрейфа на корпусе из 304 тыс. слов.\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5286\">публикация База знаний AI</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🟢",
+    "msg_id": "1660",
+    "timestamp": 1784291458
+  },
+  {
+    "text": "<b>НИУ ВШЭ <a href=\"https://ict.moscow/news/v-niu-vshe-sozdan-fond-nauki-i-tekhnologii-dlia-podderzhki-proektov-iz-vsekh-kampusov-universiteta/\">создал</a> Фонд науки и технологий для финансирования проектов из всех кампусов университета.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow/8411\">публикация ICT.Moscow</a>\n\n#ит_сектор",
+    "reaction": "🟡",
+    "msg_id": "1661",
+    "timestamp": 1784291458
+  },
+  {
+    "text": "<b>Google Research <a href=\"https://research.google/blog/towards-demystifying-the-creativity-of-diffusion-models/\">объяснил</a>, что креативность диффузионных моделей – математическое следствие обучения, а не случайность.</b>\n- Нейросети не способны идеально выучить скор-функцию и выучивают её сглаженную версию, благодаря чему между точками обучающих данных появляются плавные переходы для генерации новых примеров.\n- Авторы открыли код и полную статью.\n\n🔗 <a href=\"https://t.me/blockchainrf/13209\">публикация Все о блокчейн/мозге/space/WEB 3.0 в России и мире</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🔴",
+    "msg_id": "1662",
+    "timestamp": 1784291458
   }
 ]
