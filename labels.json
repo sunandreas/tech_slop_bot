@@ -2926,5 +2926,131 @@
     "reaction": "🔴",
     "msg_id": "1703",
     "timestamp": 1784294841
+  },
+  {
+    "text": "<b>Россия <a href=\"https://www.interfax.ru/russia/1103725\">стала</a> соучредителем Всемирной организации сотрудничества в сфере ИИ, соглашение подписали 29 государств.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5287\">публикация База знаний AI</a>\n\n#ии_регулирование",
+    "reaction": "🟢",
+    "msg_id": "1705",
+    "timestamp": 1784295058
+  },
+  {
+    "text": "<b>Показатели эффективности внедрения ИИ <a href=\"http://government.ru/news/59344/\">разработаны</a> для 19 ключевых отраслей экономики.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5287\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🟡",
+    "msg_id": "1706",
+    "timestamp": 1784295058
+  },
+  {
+    "text": "<b>В российском здравоохранении <a href=\"https://ria.ru/20260717/meditsina-2105317332.html\">расширят</a> диагностику болезней с помощью ИИ.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5287\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "1707",
+    "timestamp": 1784295058
+  },
+  {
+    "text": "<b>«Т-Технологии» <a href=\"https://huggingface.co/t-tech/T-Search\">представили</a> открытую ИИ-модель T-Search для многошагового поиска в корпоративных документах.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5287\">публикация База знаний AI</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🟡",
+    "msg_id": "1708",
+    "timestamp": 1784295058
+  },
+  {
+    "text": "<b>«Яндекс» <a href=\"https://yandex.ru/company/news/16-07-2026-01\">получил</a> международный сертификат ответственной разработки ISO/IEC 42001 для моделей семейства Alice AI.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5287\">публикация База знаний AI</a>\n\n#ии_регулирование",
+    "reaction": "🟡",
+    "msg_id": "1709",
+    "timestamp": 1784295058
+  },
+  {
+    "text": "<b>Сервис «Звук» <a href=\"https://www.vedomosti.ru/press_releases/2026/07/16/muzikalnii-servis-zvuk-zapustil-funktsiyu-sozdaniya-muziki-s-pomoschyu-ii\">представил</a> ИИ-инструмент «Сингл» для генерации музыкальных композиций с помощью промптов.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5287\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "1710",
+    "timestamp": 1784295058
+  },
+  {
+    "text": "<b>T2 <a href=\"https://www.cnews.ru/news/line/2026-07-16_t2_uskoryaet_mobilnyj_internet\">применил</a> машинное обучение для подбора параметров сети под каждого абонента.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5287\">публикация База знаний AI</a>\n\n#телеком",
+    "reaction": "🔴",
+    "msg_id": "1711",
+    "timestamp": 1784295058
+  },
+  {
+    "text": "<b>ГК X-Com <a href=\"https://www.comnews.ru/digital-economy/content/246439/2026-07-16/2026-w29/1012/x-com-zaymetsya-vnedreniem-gumanoidnykh-robotov\">открыла</a> направление «Робототехника» для внедрения гуманоидных роботов.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5287\">публикация База знаний AI</a>\n\n#ит_сектор",
+    "reaction": "🔴",
+    "msg_id": "1712",
+    "timestamp": 1784295058
+  },
+  {
+    "text": "<b>«К2 НейроТех» <a href=\"https://www.cnews.ru/news/line/2026-07-16_k2_nejroteh_zapustila_kalkulyator\">запустила</a> калькулятор для оценки инфраструктурной готовности бизнеса к внедрению ИИ.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5287\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "1713",
+    "timestamp": 1784295058
+  },
+  {
+    "text": "<b>2ГИС <a href=\"https://kod.ru/2gis-ii-pomoshchnik-nalichie-topliva-azs\">подключил</a> ИИ-помощника к данным о наличии топлива на автозаправках.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5287\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "1714",
+    "timestamp": 1784295058
+  },
+  {
+    "text": "<b>В МГУ им. М.В. Ломоносова <a href=\"https://msu.ru/news/novosti-nauki/v-tsentre-ii-mgu-predlozhili-podkhod-dlya-avtomaticheskogo-vyyavleniya-patologiy-na-kt.html\">представили</a> ИИ-метод выявления патологий на КТ без использования размеченных медицинских данных.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5287\">публикация База знаний AI</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🔴",
+    "msg_id": "1715",
+    "timestamp": 1784295058
+  },
+  {
+    "text": "<b>xAI <a href=\"https://x.ai/news/grok-build-open-source\">выложила</a> исходный код ИИ-агента для программирования Grok Build.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5287\">публикация База знаний AI</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🟡",
+    "msg_id": "1716",
+    "timestamp": 1784295058
+  },
+  {
+    "text": "<b>Google <a href=\"https://9to5google.com/2026/07/15/gemini-spark-workspace-upgrades/\">расширила</a> возможности ИИ-агента Gemini Spark на работу в «Документах», «Таблицах» и «Презентациях».</b>\n- Компания <a href=\"https://blog.google/innovation-and-ai/products/gemini-notebook/notebooklm-gemini-notebook/\">переименовала</a> ИИ-инструмент для исследований NotebookLM в Gemini Notebook.\n- В Google Vids <a href=\"https://blog.google/products-and-platforms/products/workspace/gemini-omni-personal-avatars/\">внедрена</a> возможность добавления цифрового аватара пользователя на видео.\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5287\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🟡",
+    "msg_id": "1717",
+    "timestamp": 1784295058
+  },
+  {
+    "text": "<b>NVIDIA и Toyota <a href=\"https://www.bloomberg.com/news/articles/2026-07-15/nvidia-expands-toyota-ai-partnership-for-smart-cities-factories\">расширили</a> сотрудничество для внедрения физического ИИ в робототехнику и умные города.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5287\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "1718",
+    "timestamp": 1784295058
+  },
+  {
+    "text": "<b>Hyundai <a href=\"https://www.reuters.com/world/hyundai-motor-group-make-boston-dynamics-wholly-owned-with-purchase-softbank-2026-07-16/\">приобретет</a> около 10% производителя роботов Boston Dynamics у SoftBank и сделает компанию дочерней структурой.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5287\">публикация База знаний AI</a>\n\n#ии_рынок",
+    "reaction": "🔴",
+    "msg_id": "1719",
+    "timestamp": 1784295058
+  },
+  {
+    "text": "<b>Xiaomi <a href=\"https://www.aibase.com/news/29652\">разработала</a> базовую модель Xiaomi-Robotics-1 для воплощенного ИИ.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5287\">публикация База знаний AI</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🟡",
+    "msg_id": "1720",
+    "timestamp": 1784295058
+  },
+  {
+    "text": "<b>Министерство науки и информационных технологий Южной Кореи <a href=\"https://www.upi.com/Top_News/World-News/2026/07/13/ai-for-everyone-public-services/9121783997023/\">запустит</a> проект для бесплатного использования ИИ-агентов для всех граждан.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5287\">публикация База знаний AI</a>\n\n#ии_регулирование",
+    "reaction": "🟢",
+    "msg_id": "1722",
+    "timestamp": 1784295058
+  },
+  {
+    "text": "<b>Признаки использования нейросетей <a href=\"https://www.rbc.ru/rbcfreenews/6a5902949a7947eb8a723032\">обнаружены</a> в 36% студенческих работ, проверенных «Антиплагиатом» с апреля по июнь 2026 г.</b> За аналогичный период 2025 г. показатель составлял 22%.\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5287\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🟡",
+    "msg_id": "1723",
+    "timestamp": 1784295058
+  },
+  {
+    "text": "<b>ИИ <a href=\"https://mosreg.ru/sobytiya/novosti/news-submoscow/andrei-vorobev-ii-dolzhen-pomogat-bystree-prinimat-resheniya-i-dovodit-ikh-do-rezultata/amp\">анализирует</a> видео с камер 63% строящихся домов в Московской области для выявления риска срыва сроков.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5287\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "1724",
+    "timestamp": 1784295058
+  },
+  {
+    "text": "<b>В столичных ТРЦ <a href=\"https://www.rbc.ru/technology_and_media/16/07/2026/6a57826f9a79470cbad100ce\">запущен</a> пилотный проект по внедрению автономных роботов-уборщиков.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5287\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "1725",
+    "timestamp": 1784295058
+  },
+  {
+    "text": "<b>NVIDIA <a href=\"https://developer.nvidia.com/blog/post-train-nvidia-cosmos-3-in-one-day-using-agent-skills/\">опубликовала</a> материал о повышении точности моделей визуального рассуждения с помощью ИИ-агента для программирования.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5287\">публикация База знаний AI</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🔴",
+    "msg_id": "1726",
+    "timestamp": 1784295058
   }
 ]

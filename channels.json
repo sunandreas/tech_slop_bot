@@ -1,5 +1,5 @@
 {
-  "offset": 73858344,
+  "offset": 73858365,
   "channels": {
     "blockchainrf": {
       "name": "Все о блокчейн/мозге/space/WEB 3.0 в России и мире",
@@ -51,7 +51,7 @@
     },
     "ai_newz": {
       "name": "эйай ньюз",
-      "last_seen": 4654
+      "last_seen": 4656
     },
     "ai_regulation": {
       "name": "HCAI // Регулирование ИИ",
@@ -67,5 +67,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1784294853
+  "last_run": 1784295088
 }
