@@ -2896,5 +2896,23 @@
     "reaction": "🟢",
     "msg_id": "1690",
     "timestamp": 1784291959
+  },
+  {
+    "text": "",
+    "reaction": "🟢",
+    "msg_id": "1692",
+    "timestamp": 1784292145
+  },
+  {
+    "text": "",
+    "reaction": "🟢",
+    "msg_id": "1695",
+    "timestamp": 1784292145
+  },
+  {
+    "text": "<b>LM Studio 16 июля <a href=\"https://lmstudio.ai/\">выпустила</a> Bionic — открытого локального ИИ-агента для кода, документов и голоса.</b>\n- Агент включает Coding Agent для работы с проектами, Knowledge Agent для документов и Voice Keyboard с локальной real-time транскрипцией речи.\n- Работает на устройстве: MLX на Apple Silicon, llama.cpp на других платформах, для тяжёлых задач — облачный Secure Cloud с Zero Data Retention.\n- Coding Agent поддерживает модели GLM 5.2, Kimi и другие открытые — альтернатива Cursor и Claude Code.\n\n🔗 <a href=\"https://t.me/tsingular/7886\">публикация Технозаметки Малышева</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🔴",
+    "msg_id": "1697",
+    "timestamp": 1784292145
   }
 ]
