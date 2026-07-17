@@ -2626,5 +2626,35 @@
     "reaction": "🟡",
     "msg_id": "1622",
     "timestamp": 1784280987
+  },
+  {
+    "text": "",
+    "reaction": "🔴",
+    "msg_id": "1624",
+    "timestamp": 1784291063
+  },
+  {
+    "text": "<b>Hyundai Motor Group выкупает у SoftBank оставшуюся долю около 10% в <a href=\"https://www.reuters.com/world/hyundai-motor-group-make-boston-dynamics-wholly-owned-with-purchase-softbank-2026-07-16\">Boston Dynamics</a> за $325–335 млн.</b>\n- Компания планирует начать использовать гуманоидного робота Atlas на заводе в Джорджии с 2028 г. для сортировки и подачи деталей.\n- К 2030 г. Hyundai рассматривает участие роботов в сборочных процессах.\n\n🔗 <a href=\"https://t.me/volotovskayaelena/3832\">публикация Volotovskaya</a>\n\n#ии_внедрение",
+    "reaction": "🟡",
+    "msg_id": "1625",
+    "timestamp": 1784291063
+  },
+  {
+    "text": "",
+    "reaction": "🔴",
+    "msg_id": "1628",
+    "timestamp": 1784291063
+  },
+  {
+    "text": "<b>Anthropic <a href=\"https://www.scmp.com/news/us/article/3360729/us-hardens-ai-stance-china-anthropic-calls-extending-lead?share=tLRb1xW4nabt5yGPPbLpmzOKbWAXFpkmRoKM%2Fo6AgNuzih8JKud74Iuvk0xmkdPPVmgGRlmm%2F%2BiOfgSawspJuP%2FkA6XO2IWvJICdVY4mNlt9psosMt1zDhh2K1qwVm8Dih1ZocIsq%2FR%2BmLcj8ht2TA%3D%3D&amp;utm_campaign=social_share\">обвинила</a> Zhipu в дистилляции моделей Claude и OpenAI для GLM-5.2 на Aspen Security Forum.</b>\n- Ранее Anthropic обвиняла в дистилляции DeepSeek, Alibaba, Moonshot и Minimax — Zhipu названа впервые.\n- Anthropic еженедельно закрывает миллионы аккаунтов, используемых для дистилляции.\n- Представитель Anthropic предложил правительству США ограничить продвижение китайских моделей через союзников — по аналогии с мерами против Huawei и ZTE.\n\n🔗 <a href=\"https://t.me/alwebbci/4359\">публикация All about AI, Web 3.0, BCI</a>\n\n#ии_регулирование",
+    "reaction": "🟡",
+    "msg_id": "1630",
+    "timestamp": 1784291063
+  },
+  {
+    "text": "<b>Объём реализации в российской ИТ-отрасли в I кв. 2026 г. <a href=\"https://issek.hse.ru/news/1174452123.html\">увеличился</a> на 37,6% г.-г., у разработчиков ПО — на 50,5%.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_analytics/6615\">публикация Мониторинг аналитики об IT</a>\n\n#ит_сектор",
+    "reaction": "🟢",
+    "msg_id": "1631",
+    "timestamp": 1784291063
   }
 ]
