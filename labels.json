@@ -2512,5 +2512,17 @@
     "reaction": "🟡",
     "msg_id": "1317",
     "timestamp": 1784280440
+  },
+  {
+    "text": "<b>Sber AI и футбольный клуб ЦСКА <a href=\"https://www.sberbank.ru/ru/sberpress/all/article?newsID=11fa0179-cab9-48e1-8279-8061f5d2e52c&blockID=1303&regionID=77&lang=ru&type=NEWS\">разработали</a> подход с ИИ для идентификации футболистов с помощью одной камеры.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5283\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "1604",
+    "timestamp": 1784280658
+  },
+  {
+    "text": "<b>MWS AI <a href=\"https://mts.ai/tehnologii/mws-ai-vypustila-ii-model-cotype-pro-3-dlya-resheniya-mnogoshagovyh-agentskih-zadach/\">выпустила</a> языковые модели Cotype Pro 3 и Cotype Light 3 для создания корпоративных ИИ-агентов.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5283\">публикация База знаний AI</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🟢",
+    "msg_id": "1605",
+    "timestamp": 1784280658
   }
 ]
