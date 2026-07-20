@@ -19,11 +19,11 @@
     },
     "vistehno": {
       "name": "Искусственный интеллект. Высокие технологии",
-      "last_seen": 5456
+      "last_seen": 5457
     },
     "ict_moscow": {
       "name": "ICT.Moscow",
-      "last_seen": 8417
+      "last_seen": 8418
     },
     "ict_moscow_ai": {
       "name": "База знаний AI",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1784557654
+  "last_run": 1784557954
 }
