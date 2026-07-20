@@ -3298,5 +3298,47 @@
     "reaction": "🔴",
     "msg_id": "1836",
     "timestamp": 1784537304
+  },
+  {
+    "text": "",
+    "reaction": "🟡",
+    "msg_id": "1843",
+    "timestamp": 1784537482
+  },
+  {
+    "text": "<b>ИИ-лаборатория Weco <a href=\"https://www.weco.ai/blog/first-evidence-of-recursive-self-improvement\">показала</a> AIDE² — систему, которая улучшает саму себя.</b>\n- Из примерно 100 правок выжили семь, на их основе собран новый агент AIDE85, обогнавший человеческую версию на нескольких бенчмарках.\n- Цикл инженерных улучшений, на который людям потребовалось два года, система прошла за восемь дней; объём промпта сократился в 16 раз.\n\n🔗 <a href=\"https://t.me/redmadnews/5345\">публикация red_mad_robot</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🔴",
+    "msg_id": "1846",
+    "timestamp": 1784537482
+  },
+  {
+    "text": "<b>Исследователи из Университета Цинхуа <a href=\"https://arxiv.org/pdf/2607.07508\">представили</a> SAO — метод обучения LLM с подкреплением для агентных задач.</b>\n\n🔗 <a href=\"https://t.me/redmadnews/5345\">публикация red_mad_robot</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🟡",
+    "msg_id": "1847",
+    "timestamp": 1784537482
+  },
+  {
+    "text": "<b>Исследователи из Jilin University, KAUST и University of Alberta <a href=\"https://arxiv.org/pdf/2607.13104\">выпустили</a> обзор самообучающихся ИИ-агентов с единой таксономией.</b>\n\n🔗 <a href=\"https://t.me/redmadnews/5345\">публикация red_mad_robot</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🟡",
+    "msg_id": "1848",
+    "timestamp": 1784537482
+  },
+  {
+    "text": "<b>Google DeepMind <a href=\"https://arxiv.org/pdf/2607.09197\">предложила</a> два критерия для оценки качества маршрутизации в мультимодельных системах.</b>\n\n🔗 <a href=\"https://t.me/redmadnews/5345\">публикация red_mad_robot</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🟡",
+    "msg_id": "1849",
+    "timestamp": 1784537482
+  },
+  {
+    "text": "<b>Thinking Machines Lab <a href=\"https://thinkingmachines.ai/news/introducing-inkling/\">представила</a> Inkling — открытую LLM на архитектуре смеси экспертов с 975 млрд параметров.</b> При работе одновременно используются только 41 млрд параметров.\n\n🔗 <a href=\"https://t.me/redmadnews/5345\">публикация red_mad_robot</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🟡",
+    "msg_id": "1852",
+    "timestamp": 1784537482
+  },
+  {
+    "text": "<b>Alibaba представит модель Qwen3.8 с 2,4 трлн параметров и открытыми весами в ближайшее время.</b> Предварительная версия Qwen3.8-Max-Preview уже доступна для тестирования через Alibaba Token Plan (<a href=\"https://www.qwencloud.com/pricing/token-plan\">международная версия</a> и <a href=\"https://platform.qianwenai.com/pricing/token-plan\">версия для Китая</a>), а также Qoder и QoderWork.\n\n🔗 <a href=\"https://t.me/tsingular/7906\">публикация Технозаметки Малышева</a>\n\n#ии_модели_и_агенты",
+    "reaction": "🟢",
+    "msg_id": "1853",
+    "timestamp": 1784537482
   }
 ]
