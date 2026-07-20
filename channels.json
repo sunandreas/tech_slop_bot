@@ -1,5 +1,5 @@
 {
-  "offset": 73858461,
+  "offset": 73858481,
   "channels": {
     "blockchainrf": {
       "name": "Все о блокчейн/мозге/space/WEB 3.0 в России и мире",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": true,
-  "last_run": 1784538571
+  "last_run": 1784538756
 }
