@@ -1,5 +1,5 @@
 {
-  "offset": 73858402,
+  "offset": 73858403,
   "channels": {
     "blockchainrf": {
       "name": "Все о блокчейн/мозге/space/WEB 3.0 в России и мире",
@@ -43,7 +43,7 @@
     },
     "sbmarketing": {
       "name": "News & Trends by Sber",
-      "last_seen": 9752
+      "last_seen": 9753
     },
     "volotovskayaelena": {
       "name": "Volotovskaya",
@@ -66,6 +66,6 @@
       "last_seen": 3693
     }
   },
-  "mimo_alert_sent": false,
-  "last_run": 1784535353
+  "mimo_alert_sent": true,
+  "last_run": 1784535893
 }
