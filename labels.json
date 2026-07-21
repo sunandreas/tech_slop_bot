@@ -3808,5 +3808,23 @@
     "reaction": "🔴",
     "msg_id": "1986",
     "timestamp": 1784636303
+  },
+  {
+    "text": "<b>Anthropic <a href=\"https://t.me/alwebbci/4366\">запустил</a> грантовую программу для исследований редких заболеваний с использованием Claude в рамках программы AI for Science.</b>\n- Программа включает два направления — базовая наука и ускорение клинической разработки биотехнологий.\n- Участники получат до $50 тыс. в кредитах на использование Claude на 6 месяцев.\n- Дедлайн подачи заявок — 2 августа.\n\n🔗 <a href=\"https://t.me/blockchainrf/13222\">публикация Все о блокчейн/мозге/space/WEB 3.0 в России и мире</a>\n\n#ии_внедрение",
+    "reaction": "🟡",
+    "msg_id": "1998",
+    "timestamp": 1784636479
+  },
+  {
+    "text": "<b>МТС Web Services <a href=\"https://moskva.mts.ru/about/media-centr/soobshheniya-kompanii/novosti-mts-v-rossii-i-mire/2026-07-20/mws-teamstream-zapustil-mcp-server-dlya-raboty-s-video-cherez-ii-assistentov\">запустила</a> TeamStream MCP Server для доступа ИИ-ассистентов к видеотеке и рабочим пространствам.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5300\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "2008",
+    "timestamp": 1784636479
+  },
+  {
+    "text": "<b>ВГИК, Getblogger и холдинг «On Медиа» <a href=\"https://www.cnews.ru/news/line/2026-07-20_vgikgetblogger_i_on_media_zapuskayut\">запустили</a> образовательную программу по использованию ИИ в блогосфере.</b>\n\n🔗 <a href=\"https://t.me/ict_moscow_ai/5300\">публикация База знаний AI</a>\n\n#ии_внедрение",
+    "reaction": "🔴",
+    "msg_id": "2010",
+    "timestamp": 1784636479
   }
 ]
