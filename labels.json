@@ -3754,5 +3754,59 @@
     "reaction": "🟢",
     "msg_id": "1975",
     "timestamp": 1784636142
+  },
+  {
+    "text": "<b>Российская академия наук <a href=\"https://www.osnmedia.ru/interesnoe/ran-gotovit-kodeks-etiki-chtoby-regulirovat-ii-tsitirovanie-i-eksperimenty-nad-zhivotnymi/\">готовит</a> кодекс этики для регулирования использования ИИ в научной работе и вопросов цитирования результатов.</b>\n\n🔗 <a href=\"https://t.me/ai_regulation/750\">публикация HCAI // Регулирование ИИ</a>\n\n#ии_регулирование",
+    "reaction": "🟡",
+    "msg_id": "1976",
+    "timestamp": 1784636303
+  },
+  {
+    "text": "",
+    "reaction": "🟢",
+    "msg_id": "1977",
+    "timestamp": 1784636303
+  },
+  {
+    "text": "<b>Немецкий медиарегулятор ZAK <a href=\"https://mezha.net/eng/bukvy/b10ca89e_german_regulator_rules/\">постановил</a>, что ИИ-сводки поисковых систем подпадают под национальное законодательство о СМИ.</b>\n- Решение принято после признания мюнхенским судом Google ответственным за недостоверную ИИ-сводку.\n- Под надзор попадают в том числе AI Overviews от Google и ответы Perplexity.\n\n🔗 <a href=\"https://t.me/ai_regulation/751\">публикация HCAI // Регулирование ИИ</a>\n\n#ии_регулирование",
+    "reaction": "🟡",
+    "msg_id": "1978",
+    "timestamp": 1784636303
+  },
+  {
+    "text": "<b>Белый дом <a href=\"https://www.whitehouse.gov/releases/2026/07/white-house-launches-gold-eagle-initiative-for-unprecedented-cybersecurity-vulnerability-coordination/\">запустил</a> инициативу Gold Eagle — федеральную ИИ-платформу для координации кибербезопасности критической инфраструктуры.</b>\n- Инициатива создана в рамках июньского указа президента Трампа об ИИ-инновациях и безопасности.\n- Проект совместно ведут Минфин, CISA и Минобороны вместе с частными разработчиками ИИ и операторами инфраструктуры.\n\n🔗 <a href=\"https://t.me/ai_regulation/751\">публикация HCAI // Регулирование ИИ</a>\n\n#ии_регулирование",
+    "reaction": "🟢",
+    "msg_id": "1979",
+    "timestamp": 1784636303
+  },
+  {
+    "text": "<b>Губернатор Гавайев Джош Грин <a href=\"https://www.bigislandvideonews.com/2026/07/14/new-laws-on-artificial-intelligence-enacted-in-hawai%CA%BBi/\">подписал</a> два закона об ИИ.</b>\n- House Bill 2137 запрещает вредоносные дипфейки.\n- Senate Bill 3001 обязывает раскрывать пользователям, что они общаются с ИИ-компаньоном.\n\n🔗 <a href=\"https://t.me/ai_regulation/751\">публикация HCAI // Регулирование ИИ</a>\n\n#ии_регулирование",
+    "reaction": "🟡",
+    "msg_id": "1980",
+    "timestamp": 1784636303
+  },
+  {
+    "text": "<b>В Китае 15 июля <a href=\"https://aigovernance.com/news/ai-governance-weekly-july-16-2026\">вступили в силу</a> первые в мире отдельные правила регулирования ИИ-агентов с трёхуровневой системой авторизации при принятии решений.</b>\n\n🔗 <a href=\"https://t.me/ai_regulation/751\">публикация HCAI // Регулирование ИИ</a>\n\n#ии_регулирование",
+    "reaction": "🟡",
+    "msg_id": "1981",
+    "timestamp": 1784636303
+  },
+  {
+    "text": "",
+    "reaction": "🟡",
+    "msg_id": "1984",
+    "timestamp": 1784636303
+  },
+  {
+    "text": "<b>«Бюро 1440» <a href=\"https://ict.moscow/news/v-biuro-1440-proveli-vtoroi-paketnyi-zapusk-sputnikov-nizkoorbitalnoi-gruppirovki-rassvet/\">осуществила</a> второй пакетный запуск спутников низкоорбитальной группировки «Рассвет».</b>\n- В марте компания запустила первые 16 спутников.\n- К 2030 г. «Бюро 1440» планирует вывести на орбиту 292 спутника для предоставления услуг связи 5G.\n\n🔗 <a href=\"https://t.me/ict_moscow/8417\">публикация ICT.Moscow</a>\n\n#телеком",
+    "reaction": "🔴",
+    "msg_id": "1985",
+    "timestamp": 1784636303
+  },
+  {
+    "text": "<b>ГКРЧ в апреле 2026 г. <a href=\"https://ict.moscow/news/gkrch-vydelila-chastoty-kompaniiam-biuro-1440-i-sputniks-dlia-razvitiia-otechestvennykh-sistem-sviazi-smartfon-sputnik/\">выделила</a> частоты компаниям «Бюро 1440» и «Спутникс» для развития отечественных систем связи «смартфон – спутник».</b>\n\n🔗 <a href=\"https://t.me/ict_moscow/8417\">публикация ICT.Moscow</a>\n\n#телеком",
+    "reaction": "🔴",
+    "msg_id": "1986",
+    "timestamp": 1784636303
   }
 ]
