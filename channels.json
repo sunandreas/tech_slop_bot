@@ -51,7 +51,7 @@
     },
     "ai_newz": {
       "name": "эйай ньюз",
-      "last_seen": 4661
+      "last_seen": 4663
     },
     "ai_regulation": {
       "name": "HCAI // Регулирование ИИ",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1784735679
+  "last_run": 1784735873
 }
