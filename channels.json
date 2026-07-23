@@ -23,7 +23,7 @@
     },
     "ict_moscow": {
       "name": "ICT.Moscow",
-      "last_seen": 8424
+      "last_seen": 8425
     },
     "ict_moscow_ai": {
       "name": "База знаний AI",
@@ -35,7 +35,7 @@
     },
     "tsingular": {
       "name": "Технозаметки Малышева",
-      "last_seen": 7939
+      "last_seen": 7940
     },
     "ict_moscow_analytics": {
       "name": "Мониторинг аналитики об IT",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1784797416
+  "last_run": 1784797678
 }
