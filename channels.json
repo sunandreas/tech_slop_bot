@@ -23,7 +23,7 @@
     },
     "ict_moscow": {
       "name": "ICT.Moscow",
-      "last_seen": 8432
+      "last_seen": 8433
     },
     "ict_moscow_ai": {
       "name": "База знаний AI",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1784817614
+  "last_run": 1784817795
 }
