@@ -3,7 +3,7 @@
   "channels": {
     "blockchainrf": {
       "name": "Все о блокчейн/мозге/space/WEB 3.0 в России и мире",
-      "last_seen": 13233
+      "last_seen": 13234
     },
     "redmadnews": {
       "name": "red_mad_robot",
@@ -27,7 +27,7 @@
     },
     "ict_moscow_ai": {
       "name": "База знаний AI",
-      "last_seen": 5313
+      "last_seen": 5314
     },
     "icipr": {
       "name": "ЦИПР",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1784811280
+  "last_run": 1784811509
 }
