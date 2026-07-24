@@ -7,7 +7,7 @@
     },
     "redmadnews": {
       "name": "red_mad_robot",
-      "last_seen": 5346
+      "last_seen": 5347
     },
     "abulaphia": {
       "name": "Innovation & Research",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1784890647
+  "last_run": 1784890938
 }
