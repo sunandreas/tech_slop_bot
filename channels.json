@@ -59,9 +59,9 @@
     },
     "test394234234": {
       "name": "Test89674",
-      "last_seen": 51
+      "last_seen": 52
     }
   },
-  "mimo_alert_sent": false,
-  "last_run": 1784881476
+  "mimo_alert_sent": true,
+  "last_run": 1784881650
 }
