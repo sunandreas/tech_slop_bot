@@ -11,7 +11,7 @@
     },
     "abulaphia": {
       "name": "Innovation & Research",
-      "last_seen": 6457
+      "last_seen": 6458
     },
     "alwebbci": {
       "name": "All about AI, Web 3.0, BCI",
@@ -35,7 +35,7 @@
     },
     "tsingular": {
       "name": "Технозаметки Малышева",
-      "last_seen": 7948
+      "last_seen": 7949
     },
     "ict_moscow_analytics": {
       "name": "Мониторинг аналитики об IT",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1784873748
+  "last_run": 1784873989
 }
