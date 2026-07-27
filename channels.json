@@ -47,7 +47,7 @@
     },
     "volotovskayaelena": {
       "name": "Volotovskaya",
-      "last_seen": 3840
+      "last_seen": 3841
     },
     "ai_newz": {
       "name": "эйай ньюз",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1785185161
+  "last_run": 1785185344
 }
