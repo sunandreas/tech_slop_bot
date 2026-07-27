@@ -15,7 +15,7 @@
     },
     "alwebbci": {
       "name": "All about AI, Web 3.0, BCI",
-      "last_seen": 4379
+      "last_seen": 4380
     },
     "vistehno": {
       "name": "Искусственный интеллект. Высокие технологии",
@@ -23,7 +23,7 @@
     },
     "ict_moscow": {
       "name": "ICT.Moscow",
-      "last_seen": 8440
+      "last_seen": 8443
     },
     "ict_moscow_ai": {
       "name": "База знаний AI",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1785154001
+  "last_run": 1785155239
 }
