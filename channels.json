@@ -3,7 +3,7 @@
   "channels": {
     "blockchainrf": {
       "name": "Все о блокчейн/мозге/space/WEB 3.0 в России и мире",
-      "last_seen": 13253
+      "last_seen": 13254
     },
     "redmadnews": {
       "name": "red_mad_robot",
@@ -43,7 +43,7 @@
     },
     "sbmarketing": {
       "name": "News & Trends by Sber",
-      "last_seen": 9775
+      "last_seen": 9776
     },
     "volotovskayaelena": {
       "name": "Volotovskaya",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1785400064
+  "last_run": 1785400391
 }
