@@ -7,7 +7,7 @@
     },
     "redmadnews": {
       "name": "red_mad_robot",
-      "last_seen": 5359
+      "last_seen": 5360
     },
     "abulaphia": {
       "name": "Innovation & Research",
@@ -35,7 +35,7 @@
     },
     "tsingular": {
       "name": "Технозаметки Малышева",
-      "last_seen": 8064
+      "last_seen": 8065
     },
     "ict_moscow_analytics": {
       "name": "Мониторинг аналитики об IT",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1786005358
+  "last_run": 1786005612
 }
