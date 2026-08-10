@@ -31,7 +31,7 @@
     },
     "icipr": {
       "name": "ЦИПР",
-      "last_seen": 9843
+      "last_seen": 9844
     },
     "tsingular": {
       "name": "Технозаметки Малышева",
@@ -39,11 +39,11 @@
     },
     "ict_moscow_analytics": {
       "name": "Мониторинг аналитики об IT",
-      "last_seen": 6710
+      "last_seen": 6711
     },
     "sbmarketing": {
       "name": "News & Trends by Sber",
-      "last_seen": 9792
+      "last_seen": 9793
     },
     "volotovskayaelena": {
       "name": "Volotovskaya",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1786348655
+  "last_run": 1786349481
 }
