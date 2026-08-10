@@ -11,11 +11,11 @@
     },
     "abulaphia": {
       "name": "Innovation & Research",
-      "last_seen": 6503
+      "last_seen": 6508
     },
     "alwebbci": {
       "name": "All about AI, Web 3.0, BCI",
-      "last_seen": 4403
+      "last_seen": 4404
     },
     "vistehno": {
       "name": "Искусственный интеллект. Высокие технологии",
@@ -51,7 +51,7 @@
     },
     "ai_newz": {
       "name": "эйай ньюз",
-      "last_seen": 4675
+      "last_seen": 4676
     },
     "ai_regulation": {
       "name": "HCAI // Регулирование ИИ",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1786362522
+  "last_run": 1786362819
 }
