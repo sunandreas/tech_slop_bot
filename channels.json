@@ -11,7 +11,7 @@
     },
     "abulaphia": {
       "name": "Innovation & Research",
-      "last_seen": 6501
+      "last_seen": 6503
     },
     "alwebbci": {
       "name": "All about AI, Web 3.0, BCI",
@@ -39,7 +39,7 @@
     },
     "ict_moscow_analytics": {
       "name": "Мониторинг аналитики об IT",
-      "last_seen": 6712
+      "last_seen": 6713
     },
     "sbmarketing": {
       "name": "News & Trends by Sber",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1786360733
+  "last_run": 1786361007
 }
