@@ -27,11 +27,11 @@
     },
     "ict_moscow_ai": {
       "name": "База знаний AI",
-      "last_seen": 5386
+      "last_seen": 5387
     },
     "icipr": {
       "name": "ЦИПР",
-      "last_seen": 9849
+      "last_seen": 9853
     },
     "tsingular": {
       "name": "Технозаметки Малышева",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1786452166
+  "last_run": 1786452401
 }
