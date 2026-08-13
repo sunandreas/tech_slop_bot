@@ -15,7 +15,7 @@
     },
     "alwebbci": {
       "name": "All about AI, Web 3.0, BCI",
-      "last_seen": 4411
+      "last_seen": 4412
     },
     "vistehno": {
       "name": "Искусственный интеллект. Высокие технологии",
@@ -39,7 +39,7 @@
     },
     "ict_moscow_analytics": {
       "name": "Мониторинг аналитики об IT",
-      "last_seen": 6733
+      "last_seen": 6734
     },
     "sbmarketing": {
       "name": "News & Trends by Sber",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1786620820
+  "last_run": 1786621076
 }
