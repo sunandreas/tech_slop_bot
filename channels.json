@@ -31,7 +31,7 @@
     },
     "icipr": {
       "name": "ЦИПР",
-      "last_seen": 9863
+      "last_seen": 9864
     },
     "tsingular": {
       "name": "Технозаметки Малышева",
@@ -39,7 +39,7 @@
     },
     "ict_moscow_analytics": {
       "name": "Мониторинг аналитики об IT",
-      "last_seen": 6735
+      "last_seen": 6736
     },
     "sbmarketing": {
       "name": "News & Trends by Sber",
@@ -51,7 +51,7 @@
     },
     "ai_newz": {
       "name": "эйай ньюз",
-      "last_seen": 4683
+      "last_seen": 4684
     },
     "ai_regulation": {
       "name": "HCAI // Регулирование ИИ",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1786694253
+  "last_run": 1786694916
 }
