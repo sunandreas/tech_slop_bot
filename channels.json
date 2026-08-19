@@ -47,11 +47,11 @@
     },
     "volotovskayaelena": {
       "name": "Volotovskaya",
-      "last_seen": 3859
+      "last_seen": 3860
     },
     "ai_newz": {
       "name": "эйай ньюз",
-      "last_seen": 4694
+      "last_seen": 4695
     },
     "ai_regulation": {
       "name": "HCAI // Регулирование ИИ",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1787153123
+  "last_run": 1787153341
 }
