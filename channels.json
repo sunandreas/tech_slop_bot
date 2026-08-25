@@ -23,7 +23,7 @@
     },
     "ict_moscow": {
       "name": "ICT.Moscow",
-      "last_seen": 8524
+      "last_seen": 8525
     },
     "ict_moscow_ai": {
       "name": "База знаний AI",
@@ -47,7 +47,7 @@
     },
     "volotovskayaelena": {
       "name": "Volotovskaya",
-      "last_seen": 3864
+      "last_seen": 3865
     },
     "ai_newz": {
       "name": "эйай ньюз",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1787652065
+  "last_run": 1787652278
 }
