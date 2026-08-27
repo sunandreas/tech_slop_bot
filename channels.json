@@ -43,7 +43,7 @@
     },
     "sbmarketing": {
       "name": "News & Trends by Sber",
-      "last_seen": 9825
+      "last_seen": 9826
     },
     "volotovskayaelena": {
       "name": "Volotovskaya",
@@ -51,7 +51,7 @@
     },
     "ai_newz": {
       "name": "эйай ньюз",
-      "last_seen": 4727
+      "last_seen": 4728
     },
     "ai_regulation": {
       "name": "HCAI // Регулирование ИИ",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1787831705
+  "last_run": 1787831888
 }
