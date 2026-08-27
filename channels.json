@@ -39,15 +39,15 @@
     },
     "ict_moscow_analytics": {
       "name": "Мониторинг аналитики об IT",
-      "last_seen": 6784
+      "last_seen": 6787
     },
     "sbmarketing": {
       "name": "News & Trends by Sber",
-      "last_seen": 9820
+      "last_seen": 9825
     },
     "volotovskayaelena": {
       "name": "Volotovskaya",
-      "last_seen": 3867
+      "last_seen": 3868
     },
     "ai_newz": {
       "name": "эйай ньюз",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1787816913
+  "last_run": 1787817470
 }
