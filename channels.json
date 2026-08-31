@@ -31,7 +31,7 @@
     },
     "icipr": {
       "name": "ЦИПР",
-      "last_seen": 9917
+      "last_seen": 9918
     },
     "tsingular": {
       "name": "Технозаметки Малышева",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": true,
-  "last_run": 1788188607
+  "last_run": 1788188807
 }
