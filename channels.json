@@ -35,11 +35,11 @@
     },
     "tsingular": {
       "name": "Технозаметки Малышева",
-      "last_seen": 8338
+      "last_seen": 8339
     },
     "ict_moscow_analytics": {
       "name": "Мониторинг аналитики об IT",
-      "last_seen": 6808
+      "last_seen": 6809
     },
     "sbmarketing": {
       "name": "News & Trends by Sber",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": true,
-  "last_run": 1788336576
+  "last_run": 1788336755
 }
