@@ -35,7 +35,7 @@
     },
     "tsingular": {
       "name": "Технозаметки Малышева",
-      "last_seen": 8348
+      "last_seen": 8351
     },
     "ict_moscow_analytics": {
       "name": "Мониторинг аналитики об IT",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": true,
-  "last_run": 1788376178
+  "last_run": 1788376363
 }
