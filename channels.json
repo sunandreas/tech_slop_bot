@@ -39,7 +39,7 @@
     },
     "ict_moscow_analytics": {
       "name": "Мониторинг аналитики об IT",
-      "last_seen": 6830
+      "last_seen": 6831
     },
     "sbmarketing": {
       "name": "News & Trends by Sber",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": true,
-  "last_run": 1789027594
+  "last_run": 1789027773
 }
