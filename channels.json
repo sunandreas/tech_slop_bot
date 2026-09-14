@@ -3,11 +3,11 @@
   "channels": {
     "blockchainrf": {
       "name": "Все о блокчейн/мозге/space/WEB 3.0 в России и мире",
-      "last_seen": 13396
+      "last_seen": 13397
     },
     "redmadnews": {
       "name": "red_mad_robot",
-      "last_seen": 5395
+      "last_seen": 5396
     },
     "abulaphia": {
       "name": "Innovation & Research",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1789396414
+  "last_run": 1789396640
 }
