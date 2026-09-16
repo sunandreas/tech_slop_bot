@@ -27,7 +27,7 @@
     },
     "ict_moscow_ai": {
       "name": "База знаний AI",
-      "last_seen": 5504
+      "last_seen": 5505
     },
     "icipr": {
       "name": "ЦИПР",
@@ -47,7 +47,7 @@
     },
     "volotovskayaelena": {
       "name": "Volotovskaya",
-      "last_seen": 3883
+      "last_seen": 3884
     },
     "ai_newz": {
       "name": "эйай ньюз",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1789545088
+  "last_run": 1789545587
 }
