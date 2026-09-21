@@ -43,7 +43,7 @@
     },
     "sbmarketing": {
       "name": "News & Trends by Sber",
-      "last_seen": 9872
+      "last_seen": 9873
     },
     "volotovskayaelena": {
       "name": "Volotovskaya",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1789994558
+  "last_run": 1789994817
 }
