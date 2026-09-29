@@ -35,7 +35,7 @@
     },
     "tsingular": {
       "name": "Технозаметки Малышева",
-      "last_seen": 8703
+      "last_seen": 8704
     },
     "ict_moscow_analytics": {
       "name": "Мониторинг аналитики об IT",
@@ -43,7 +43,7 @@
     },
     "sbmarketing": {
       "name": "News & Trends by Sber",
-      "last_seen": 9884
+      "last_seen": 9885
     },
     "volotovskayaelena": {
       "name": "Volotovskaya",
@@ -51,7 +51,7 @@
     },
     "ai_newz": {
       "name": "эйай ньюз",
-      "last_seen": 4781
+      "last_seen": 4789
     },
     "ai_regulation": {
       "name": "HCAI // Регулирование ИИ",
@@ -63,5 +63,5 @@
     }
   },
   "mimo_alert_sent": false,
-  "last_run": 1790704141
+  "last_run": 1790707383
 }
